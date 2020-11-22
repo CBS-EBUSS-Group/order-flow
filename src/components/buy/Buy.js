@@ -206,8 +206,9 @@ const Buy = () => {
       {step === 2 && (
         <div>
           <div>
-            <h1>Portfolio</h1>
-            <Button variant="light">Next</Button>
+            <h1>Overview</h1>
+            <p>overview über stj </p>
+            <Button variant="light">Confirm & Buy</Button>
           </div>
         </div>
       )}
