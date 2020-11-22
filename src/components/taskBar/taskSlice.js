@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
 
 const initialState = [
   { name: "task 1", done: false },
@@ -10,6 +10,7 @@ export const taskSlice = createSlice({
   initialState,
   reducers: {
     setDone: (state, action) => {
+      ...state,
       const task = state.tasks.find((task) => task.id === action.payload);
       task.done = true;
     },
