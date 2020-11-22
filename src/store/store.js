@@ -3,6 +3,7 @@ import counterReducer from "../components/counter/counterSlice";
 import tasksReducer from "../components/taskBar/taskSlice";
 import accountReducer from "../components/account/accountSlice";
 import depotReducer from "../components/depot/depotSlice";
+import basketReducer from "./basketSlice";
 
 export default configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export default configureStore({
     tasks: tasksReducer,
     account: accountReducer,
     depot: depotReducer,
+    basket: basketReducer,
   },
 });

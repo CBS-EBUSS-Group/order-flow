@@ -26,6 +26,10 @@
   font-weight: bold;
 }
 
+.inner:hover {
+  border-color: #7289da;
+}
+
 .img {
   width: calc(363px * 0.75);
   border: 1px solid #23272a;

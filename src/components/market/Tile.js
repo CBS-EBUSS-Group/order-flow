@@ -1,10 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { setItem } from "../../store/basketSlice";
 import styles from "./Market.module.css";
 
-const Tile = ({ instrument }) => {
-  console.log(instrument);
+const Tile = ({ instrument, setRedirect }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(setItem(instrument));
+    setRedirect(true);
+  };
+
   return (
-    <div>
+    <div onClick={() => handleClick()}>
       <div className={styles.inner}>
         <p>{instrument.name}</p>
         <img

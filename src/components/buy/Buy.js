@@ -9,7 +9,9 @@ import {
 } from "react-bootstrap";
 import styles from "./Buy.module.css";
 
-const Buy = () => {
+const Buy = ({ state } = window.location) => {
+  console.log(state);
+
   const [stock, setStock] = useState(null);
   const [quantity, setQuantity] = useState(0);
   const [step, setStep] = useState(1);
