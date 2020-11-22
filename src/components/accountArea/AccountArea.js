@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AccountArea.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Jumbotron } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const AccountArea = () => {
   return (
