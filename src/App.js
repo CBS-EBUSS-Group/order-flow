@@ -5,6 +5,7 @@ import TaskBar from "./components/taskBar";
 import Counter from "./components/counter";
 import Home from "./components/home";
 import Buy from "./components/buy";
+import AccountArea from "./components/accountArea";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Router>
           <Switch>
             <Route path="/counter" component={Counter} />
+            <Route path="/accountarea" component={AccountArea} />
             <Route path="/buy" component={Buy} />
             <Route path="/" component={Home} />
           </Switch>

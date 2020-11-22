@@ -1,21 +1,14 @@
-.buy {
+.accountArea {
   width: 100%;
   background-color: #bbbfca;
 }
 
-.chart {
-  text-align: left;
+.jumbo {
+  background-color: #bbbfca;
+  width: 100%;
 }
 
 h1 {
-  text-align: left;
-}
-
-h2 {
-  text-align: left;
-}
-
-h3 {
   text-align: left;
 }
 
