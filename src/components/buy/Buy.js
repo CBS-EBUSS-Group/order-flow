@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./Buy.module.css";
 
 const Buy = () => {
   const [stock, setStock] = useState(null);
@@ -6,7 +7,7 @@ const Buy = () => {
   const [step, setStep] = useState(1);
 
   return (
-    <div>
+    <div className={styles.buy}>
       {step === 0 && <div>Step 0</div>}
       {step === 1 && <div>Step 1</div>}
     </div>
