@@ -5,13 +5,13 @@ import TaskBar from "./components/taskBar";
 import Counter from "./components/counter";
 import Home from "./components/home";
 import Buy from "./components/buy";
-import "./App.css";
+import styles from "./App.module.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <NavBar />
-      <div className="content">
+      <div className={styles.content}>
         <Router>
           <Switch>
             <Route path="/counter" component={Counter} />

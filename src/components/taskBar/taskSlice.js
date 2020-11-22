@@ -1,33 +1,21 @@
-import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
-  { name: "task 1", done: false },
-  { name: "task 2", done: true },
+  { id: 1, title: "Task 1", done: false },
+  { id: 2, title: "Task 2", done: true },
 ];
 
-export const taskSlice = createSlice({
+export const tasksSlice = createSlice({
   name: "tasks",
-  initialState,
+  initialState: initialState,
   reducers: {
-    setDone: (state, action) => {
-      ...state,
-      const task = state.tasks.find((task) => task.id === action.payload);
-      task.done = true;
-    },
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    setDone(state, action) {
+      const task = state.find((task) => task.id === action.payload);
+      if (task) {
+        task.done = true;
+      }
     },
   },
 });
 
-export const { setDone } = taskSlice.actions;
-
-export const selecttasks = (state) => state.tasks.value;
-
-export default taskSlice.reducer;
+export default tasksSlice.reducer;
