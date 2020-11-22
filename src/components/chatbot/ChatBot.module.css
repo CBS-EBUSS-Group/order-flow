@@ -1,0 +1,37 @@
+.image {
+  position: fixed;
+  bottom: 0;
+  right: 40px;
+  width: 250px;
+  z-index: 1;
+}
+
+.bubble {
+  position: fixed;
+  bottom: 200px;
+  right: 300px;
+  min-width: 400px;
+  max-width: 700px;
+  min-height: 150px;
+  z-index: 1;
+  border: 1px solid grey;
+  border-radius: 30px;
+  background-color: grey;
+}
+
+.dialogue {
+  margin: 20px;
+  color: #ffffff;
+}
+
+.dialogue::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  right: -20px;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-bottom-color: grey;
+  border-left: 0;
+}

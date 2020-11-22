@@ -18,4 +18,6 @@ export const tasksSlice = createSlice({
   },
 });
 
+export const { setDone } = tasksSlice.actions;
+
 export default tasksSlice.reducer;

@@ -6,8 +6,6 @@ import styles from "./TaskBar.module.css";
 const TaskBar = () => {
   const tasks = useSelector((state) => state.tasks);
 
-  console.log(tasks);
-
   return (
     <div className={styles.task_bar}>
       <h2>Tasks</h2>
