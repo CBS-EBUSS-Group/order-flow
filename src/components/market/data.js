@@ -35,6 +35,27 @@ const data = {
       price: 2.84,
       img: "chart_xiaomi.png",
     },
+    {
+      id: 5,
+      wkn: "TUAG00",
+      name: "Tui AG",
+      price: 4.96,
+      img: "chart_tui.png",
+    },
+    {
+      id: 6,
+      wkn: "852009",
+      name: "Pfizer",
+      price: 31,
+      img: "chart_pfizer.png",
+    },
+    {
+      id: 7,
+      wkn: "865985",
+      name: "Apple",
+      price: 99.14,
+      img: "chart_apple.png",
+    },
   ],
   indices: [
     {
@@ -57,6 +78,13 @@ const data = {
       name: "Vanguard Dow Jones ETF",
       price: 45.91,
       img: "chart_dow.png",
+    },
+    {
+      id: 3,
+      wkn: "A0MW0M",
+      name: "iShares Global Clean Energy ETF",
+      price: 10.65,
+      img: "chart_gce.png",
     },
   ],
 };
