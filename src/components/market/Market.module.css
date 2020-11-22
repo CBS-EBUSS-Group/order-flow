@@ -1,0 +1,33 @@
+.page {
+  background-color: #2c2f33;
+  color: #ffffff;
+  width: 100%;
+}
+
+.heading {
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 50px;
+  color: #23272a;
+}
+
+.inner {
+  padding: 20px;
+  margin: 20px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background-color: #99aab5;
+  font-weight: bold;
+}
+
+.img {
+  width: calc(363px * 0.75);
+  border: 1px solid #23272a;
+  border-radius: 5px;
+}

@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/navBar";
 import TaskBar from "./components/taskBar";
 import Counter from "./components/counter";
-import Home from "./components/home";
+import Welcome from "./components/welcome";
 import Buy from "./components/buy";
-import AccountArea from "./components/accountArea";
+import Home from "./components/home";
 import Account from "./components/account";
 import Depot from "./components/depot";
+import Market from "./components/market";
 import ChatBot from "./components/chatbot";
 import styles from "./App.module.css";
 
@@ -19,10 +20,11 @@ function App() {
         <Router>
           <Switch>
             <Route path="/counter" component={Counter} />
-            <Route path="/accountarea" component={AccountArea} />
             <Route path="/buy" component={Buy} />
             <Route path="/account" component={Account} />
             <Route path="/depot" component={Depot} />
+            <Route path="/market" component={Market} />
+            <Route path="/welcome" component={Welcome} />
             <Route path="/" component={Home} />
           </Switch>
         </Router>
