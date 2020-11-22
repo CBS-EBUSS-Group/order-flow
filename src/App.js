@@ -5,6 +5,7 @@ import TaskBar from "./components/taskBar";
 import Counter from "./components/counter";
 import Home from "./components/home";
 import Buy from "./components/buy";
+import AccountArea from "./components/accountArea";
 import styles from "./App.module.css";
 
 function App() {
