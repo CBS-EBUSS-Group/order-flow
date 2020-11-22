@@ -15,6 +15,7 @@ function App() {
         <Router>
           <Switch>
             <Route path="/counter" component={Counter} />
+            <Route path="/accountarea" component={AccountArea} />
             <Route path="/buy" component={Buy} />
             <Route path="/" component={Home} />
           </Switch>

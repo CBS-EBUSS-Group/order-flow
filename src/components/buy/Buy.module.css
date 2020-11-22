@@ -1,4 +1,24 @@
 .buy {
   width: 100%;
-  background-color: rosybrown;
+  background-color: #bbbfca;
+}
+
+.chart {
+  text-align: left;
+}
+
+h1 {
+  text-align: left;
+}
+
+h2 {
+  text-align: left;
+}
+
+h3 {
+  text-align: left;
+}
+
+p {
+  text-align: left;
 }
