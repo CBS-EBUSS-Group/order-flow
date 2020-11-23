@@ -14,10 +14,10 @@ import styles from "./App.module.css";
 
 function App() {
   return (
-    <div className={styles.app}>
-      <NavBar />
-      <div className={styles.content}>
-        <Router>
+    <Router>
+      <div className={styles.app}>
+        <NavBar />
+        <div className={styles.content}>
           <Switch>
             <Route path="/counter" component={Counter} />
             <Route path="/buy" component={Buy} />
@@ -27,11 +27,11 @@ function App() {
             <Route path="/welcome" component={Welcome} />
             <Route path="/" component={Home} />
           </Switch>
-        </Router>
-        <TaskBar />
+          <TaskBar />
+        </div>
+        {/*<ChatBot />*/}
       </div>
-      {/*<ChatBot />*/}
-    </div>
+    </Router>
   );
 }
 

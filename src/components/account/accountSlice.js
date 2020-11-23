@@ -3,9 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   balance: 4100,
   transactions: [
-    { id: 0, title: "Transfer from Account no. 8123981238", amount: 5000 },
-    { id: 1, title: "Alteryx", amount: -500 },
-    { id: 2, title: "Amazon", amount: -400 },
+    { title: "Transfer from Account no. 8123981238", amount: 5000 },
+    { title: "Alteryx", amount: -500 },
+    { title: "Amazon", amount: -400 },
   ],
 };
 
@@ -14,13 +14,20 @@ export const accountSlice = createSlice({
   initialState: initialState,
   reducers: {
     addTransaction(state, action) {
-      const { amount, price } = action.payload;
+      const { amount } = action.payload;
       state.transactions.push(action.payload);
-      state.balance += price * amount;
+      state.balance += amount;
+    },
+    addTransactions(state, action) {
+      action.payload.forEach((transaction) => {
+        const { amount } = transaction;
+        state.transactions.push(transaction);
+        state.balance += amount;
+      });
     },
   },
 });
 
-export const { addTransaction } = accountSlice.actions;
+export const { addTransaction, addTransactions } = accountSlice.actions;
 
 export default accountSlice.reducer;

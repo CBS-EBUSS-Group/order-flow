@@ -10,8 +10,8 @@ const Depot = () => {
       <h1>Depot</h1>
       <h4>Your current portfolio:</h4>
       <ul>
-        {instruments.map((instrument) => (
-          <InstrumentItem key={instrument.id} item={instrument} />
+        {instruments.map((instrument, i) => (
+          <InstrumentItem key={i} item={instrument} />
         ))}
       </ul>
     </div>

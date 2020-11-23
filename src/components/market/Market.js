@@ -9,7 +9,7 @@ const Market = () => {
   const { stocks, indices } = data;
 
   if (redirect) {
-    return <Redirect to={"/buy"} />;
+    return <Redirect to="/buy" />;
   }
 
   return (

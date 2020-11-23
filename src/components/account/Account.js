@@ -11,8 +11,8 @@ const Balance = () => {
       <p>{balance}</p>
       <h4>History:</h4>
       <ul>
-        {transactions.map((transaction) => (
-          <Transactionitem key={transaction.id} item={transaction} />
+        {transactions.map((transaction, i) => (
+          <Transactionitem key={i} item={transaction} />
         ))}
       </ul>
     </div>

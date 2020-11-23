@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form, Col, Popover, OverlayTrigger } from "react-bootstrap";
 import styles from "./Buy.module.css";
 
-const OrderForm = ({ item, formValues, setFormValues }) => {
+const OrderForm = ({ item, formValues, setFormValues, setStep }) => {
   const { exchange, orderType, price, count, ultimo } = formValues;
   return (
     <Form>
@@ -58,7 +58,7 @@ const OrderForm = ({ item, formValues, setFormValues }) => {
       </Form.Row>
 
       <Form.Row>
-        <Form.Group as={Col} controlId="formGridState">
+        <Form.Group as={Col} controlId="formGridState" xs={6}>
           <OverlayTrigger
             trigger="hover"
             placement="auto"
@@ -216,7 +216,11 @@ const OrderForm = ({ item, formValues, setFormValues }) => {
           </Form.Control>
         </Form.Group>
       </Form.Row>
-      <Button variant="primary" style={{ width: "100px", marginRight: "10px" }}>
+      <Button
+        variant="primary"
+        style={{ width: "100px", marginRight: "10px" }}
+        onClick={() => setStep(2)}
+      >
         Next
       </Button>
       <Button variant="light" style={{ width: "100px" }}>

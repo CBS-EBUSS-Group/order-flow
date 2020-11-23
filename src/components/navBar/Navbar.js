@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const NavBar = () => {
   return (
     <div className={styles.nav}>
-      <h1 className={styles.title}>Order Flow</h1>
+      <Link to="/" className={styles.title}>
+        Order Flow
+      </Link>
     </div>
   );
 };
