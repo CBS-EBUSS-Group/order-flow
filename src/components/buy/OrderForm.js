@@ -2,7 +2,8 @@ import React from "react";
 import { Button, Form, Col, Popover, OverlayTrigger } from "react-bootstrap";
 import styles from "./Buy.module.css";
 
-const OrderForm = () => {
+const OrderForm = ({ item, formValues, setFormValues }) => {
+  const { exchange, fees, orderType, price, count, ultimo } = formValues;
   return (
     <Form>
       <Form.Row>
@@ -24,7 +25,13 @@ const OrderForm = () => {
           >
             <Form.Label>Exchange</Form.Label>
           </OverlayTrigger>
-          <Form.Control as="select" defaultValue="Choose...">
+          <Form.Control
+            as="select"
+            defaultValue="Choose..."
+            value={exchange}
+            name="exchange"
+            onChange={(e) => setFormValues(e)}
+          >
             <option>Direct</option>
             <option>Xetra</option>
           </Form.Control>
@@ -46,7 +53,7 @@ const OrderForm = () => {
           >
             <Form.Label>Additional Fees</Form.Label>
           </OverlayTrigger>
-          <Form.Control />
+          <Form.Control name="fees" value={exchange === "Xetra" ? 1.75 : 0} />
         </Form.Group>
       </Form.Row>
 
@@ -116,7 +123,13 @@ const OrderForm = () => {
           >
             <Form.Label>Order Type</Form.Label>
           </OverlayTrigger>
-          <Form.Control as="select" defaultValue="Choose...">
+          <Form.Control
+            as="select"
+            defaultValue="Choose..."
+            name="orderType"
+            value={orderType}
+            onChange={(e) => setFormValues(e)}
+          >
             <option>Market Order</option>
             <option>Limit Order</option>
             <option>Stop-Loss Order</option>
@@ -125,6 +138,7 @@ const OrderForm = () => {
             <option>Immediate-Or-Cancel</option>
           </Form.Control>
         </Form.Group>
+
         <Form.Group as={Col} controlId="formGridZip">
           <OverlayTrigger
             trigger="hover"
@@ -139,26 +153,35 @@ const OrderForm = () => {
               </Popover>
             }
           >
-            <Form.Label>Price</Form.Label>
+            <Form.Label>Price (EUR)</Form.Label>
           </OverlayTrigger>
-          <Form.Control />
+          <Form.Control
+            name="price"
+            value={orderType !== "Market Order" ? price : item.price}
+            onChange={(e) => setFormValues(e)}
+          />
         </Form.Group>
+
         <Form.Group as={Col} controlId="formGridZip">
           <OverlayTrigger
             trigger="hover"
             placement="auto"
             overlay={
               <Popover id="popover-basic">
-                <Popover.Title as="h3">Amount</Popover.Title>
+                <Popover.Title as="h3">Count</Popover.Title>
                 <Popover.Content>
                   Enter the number of shares for the selected security.
                 </Popover.Content>
               </Popover>
             }
           >
-            <Form.Label>Amount</Form.Label>
+            <Form.Label>Count</Form.Label>
           </OverlayTrigger>
-          <Form.Control />
+          <Form.Control
+            name="count"
+            value={count}
+            onChange={(e) => setFormValues(e)}
+          />
         </Form.Group>
       </Form.Row>
 
@@ -180,18 +203,20 @@ const OrderForm = () => {
           >
             <Form.Label>Date valid until</Form.Label>
           </OverlayTrigger>
-          <Form.Control as="select" defaultValue="Choose...">
-            <option>Automatic</option>
+          <Form.Control
+            as="select"
+            defaultValue="Choose..."
+            name="ultimo"
+            value={ultimo}
+            onChange={(e) => setFormValues(e)}
+          >
             <option>Immediately</option>
             <option>End of Day</option>
             <option>End of Month</option>
-            <option>Maximum</option>
           </Form.Control>
         </Form.Group>
       </Form.Row>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+      <Button variant="primary">Next</Button>
       <Button variant="light">Back</Button>
     </Form>
   );

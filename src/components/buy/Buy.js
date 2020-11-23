@@ -3,14 +3,24 @@ import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 import OrderForm from "./OrderForm";
 import Tile from "./Tile";
+import useFormFields from "../../hooks";
 import styles from "./Buy.module.css";
 
 const Buy = () => {
   const item = useSelector((state) => state.basket.item);
   const { balance } = useSelector((state) => state.account);
+  const [formValues, setFormValues] = useFormFields({
+    exchange: "Direct",
+    orderType: "Market Order",
+    price: 0,
+    count: 0,
+    ultimo: "Immediately",
+  });
   const [stock, setStock] = useState(null);
   const [quantity, setQuantity] = useState(0);
   const [step, setStep] = useState(1);
+
+  console.log(formValues);
 
   return (
     <div className="page">
@@ -21,7 +31,12 @@ const Buy = () => {
             <Tile instrument={item} />
             <div>
               <h2>Account Balance: {balance} EUR</h2>
-              <OrderForm type={"buy"} item={item} />
+              <OrderForm
+                type={"buy"}
+                item={item}
+                formValues={formValues}
+                setFormValues={setFormValues}
+              />
             </div>
           </div>
         </Fragment>
