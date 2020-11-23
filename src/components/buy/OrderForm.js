@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form, Col, Popover, OverlayTrigger } from "react-bootstrap";
 import styles from "./Buy.module.css";
 
-const OrderForm = ({ item, formValues, setFormValues, setStep }) => {
+const OrderForm = ({ item, formValues, setFormValues, setStep, type }) => {
   const { exchange, orderType, price, count, ultimo } = formValues;
   return (
     <Form>
@@ -132,7 +132,7 @@ const OrderForm = ({ item, formValues, setFormValues, setStep }) => {
           >
             <option>Market Order</option>
             <option>Limit Order</option>
-            <option>Stop-Loss Order</option>
+            {type === "sell" && <option>Stop-Loss Order</option>}
             <option>Stop Order</option>
             <option>Fill-Or-KIll</option>
             <option>Immediate-Or-Cancel</option>
