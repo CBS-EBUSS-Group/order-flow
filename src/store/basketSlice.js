@@ -1,7 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  item: null,
+  item: {
+    id: 5,
+    wkn: "TUAG00",
+    name: "Tui AG",
+    price: 4.96,
+    img: "chart_tui.png",
+  },
 };
 
 export const basketSlice = createSlice({

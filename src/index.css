@@ -10,3 +10,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.page {
+  background-color: #2c2f33;
+  color: #ffffff;
+  width: 100%;
+}

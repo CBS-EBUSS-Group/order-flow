@@ -30,7 +30,7 @@ function App() {
         </Router>
         <TaskBar />
       </div>
-      <ChatBot />
+      {/*<ChatBot />*/}
     </div>
   );
 }

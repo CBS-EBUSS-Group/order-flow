@@ -1,6 +1,22 @@
-.buy {
-  width: 100%;
-  background-color: #bbbfca;
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 50px;
+}
+
+.inner {
+  padding: 20px;
+  margin: 20px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background-color: #99aab5;
+  font-weight: bold;
+}
+
+.img {
+  width: calc(363px * 0.75);
+  border: 1px solid #23272a;
+  border-radius: 5px;
 }
 
 .chart {
@@ -8,7 +24,8 @@
 }
 
 h1 {
-  text-align: left;
+  margin-left: 50px;
+  margin-top: 30px;
 }
 
 h2 {

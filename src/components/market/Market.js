@@ -13,7 +13,7 @@ const Market = () => {
   }
 
   return (
-    <div className={styles.page}>
+    <div className="page">
       <h1 className={styles.heading}>Stocks</h1>
       <div className={styles.container}>
         {stocks.map((instrument) => (
