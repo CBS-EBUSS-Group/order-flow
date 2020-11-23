@@ -223,7 +223,11 @@ const OrderForm = ({ item, formValues, setFormValues, setStep }) => {
       >
         Next
       </Button>
-      <Button variant="light" style={{ width: "100px" }}>
+      <Button
+        variant="light"
+        style={{ width: "100px" }}
+        onClick={() => setStep(4)}
+      >
         Back
       </Button>
     </Form>

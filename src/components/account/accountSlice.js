@@ -16,13 +16,13 @@ export const accountSlice = createSlice({
     addTransaction(state, action) {
       const { amount } = action.payload;
       state.transactions.push(action.payload);
-      state.balance += amount;
+      state.balance -= amount;
     },
     addTransactions(state, action) {
       action.payload.forEach((transaction) => {
         const { amount } = transaction;
         state.transactions.push(transaction);
-        state.balance += amount;
+        state.balance -= amount;
       });
     },
   },

@@ -7,7 +7,7 @@ import Tile from "./Tile";
 import useFormFields from "../../hooks";
 import { setItem } from "../../store/basketSlice";
 import { addInstrument } from "../depot/depotSlice";
-import { addTransaction, addTransactions } from "../account/accountSlice";
+import { addTransactions } from "../account/accountSlice";
 import styles from "./Buy.module.css";
 
 const Buy = () => {
@@ -47,6 +47,10 @@ const Buy = () => {
     setStep(3);
   };
 
+  if (step === 4) {
+    return <Redirect to="/market" />;
+  }
+
   if (step === 3) {
     return <Redirect to="/" />;
   }
@@ -74,11 +78,11 @@ const Buy = () => {
       {step === 2 && (
         <div className={styles.checkout}>
           <h1>Confirm your Order</h1>
-          <p>
+          <p className={styles.textItem}>
             <b>Name: </b>
             <span>{item.name}</span>
           </p>
-          <p>
+          <p className={styles.textItem}>
             <b>WKN: </b>
             <span>{item.wkn}</span>
           </p>
@@ -87,49 +91,50 @@ const Buy = () => {
               marginBottom: "15px",
               backgroundColor: "white",
               height: "2px",
-              width: "200px",
+              width: "100%",
             }}
           ></div>
-          <p>
+          <p className={styles.textItem}>
             <b>Exchange: </b>
             <span>{formValues.exchange}</span>
           </p>
-          <p>
+          <p className={styles.textItem}>
             <b>Count: </b>
             <span>{formValues.count}</span>
           </p>
-          <p>
+          <p className={styles.textItem}>
             <b>Price: </b>
             <span>{orderPrice} EUR</span>
           </p>
-          <p>
+          <p className={styles.textItem}>
             <b>Additional Fees: </b>
             <span>{fees} EUR</span>
           </p>
-          <p>
+          <p className={styles.textItem}>
             <b>Order Value: </b>
             <span>{amount} EUR</span>
           </p>
-          <p>
+          <p className={styles.textItem}>
             <b>Order Type: </b>
             <span>{formValues.orderType}</span>
           </p>
-          <p>
+          <p className={styles.textItem}>
             <b>Order valid until: </b>
             <span>{formValues.ultimo}</span>
           </p>
-
-          <Button
-            variant="primary"
-            className={styles.btn}
-            style={{ marginRight: "10px" }}
-            onClick={(e) => handleSubmit(e)}
-          >
-            Confirm & Buy
-          </Button>
-          <Button variant="light" onClick={() => setStep(1)}>
-            Back
-          </Button>
+          <div className={styles.linkContainer}>
+            <Button
+              variant="primary"
+              className={styles.btn}
+              style={{ marginRight: "10px" }}
+              onClick={(e) => handleSubmit(e)}
+            >
+              Confirm & Buy
+            </Button>
+            <Button variant="light" onClick={() => setStep(1)}>
+              Back
+            </Button>
+          </div>
         </div>
       )}
     </div>

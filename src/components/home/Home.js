@@ -9,16 +9,20 @@ const Home = () => {
     <div className={`page ${styles.container}`}>
       <div className={styles.innerBox}>
         <h1>Your Account Overview</h1>
-        <p>Depot Nr: 12663390</p>
-        <p>Buying Power: {balance} EUR</p>
+        <p>
+          <b>Depot Nr:</b> 12663390
+        </p>
+        <p>
+          <b>Buying Power:</b> {balance} EUR
+        </p>
         <div className={styles.linkContainer}>
-          <Link to="/market" className={styles.buttonLink}>
+          <Link to="/market" className="buttonLink">
             Buy
           </Link>
-          <Link to="/depot" className={styles.buttonLink}>
+          <Link to="/depot" className="buttonLink">
             Depot
           </Link>
-          <Link to="/account" className={styles.buttonLink}>
+          <Link to="/account" className="buttonLink">
             Account
           </Link>
         </div>

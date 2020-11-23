@@ -11,23 +11,5 @@
   display: flex;
   flex-direction: row;
   margin-left: 50px;
-}
-
-.buttonLink {
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  width: 90px;
-  height: 40px;
-  border: 1px solid #ffffff;
-  margin: 0 10px;
-  border-radius: 5px;
-  padding: 5px 10px;
-  background-color: #7289da;
-  color: #ffffff;
-}
-
-.buttonLink:hover {
-  color: #ffffff;
-  text-decoration: none;
+  margin-top: 50px;
 }
