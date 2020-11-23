@@ -1,17 +1,33 @@
-.accountArea {
-  width: 100%;
-  background-color: #bbbfca;
+.container {
+  display: flex;
+  justify-content: center;
 }
 
-.jumbo {
-  background-color: #bbbfca;
-  width: 100%;
+.innerBox {
+  margin-top: 150px;
 }
 
-h1 {
-  text-align: left;
+.linkContainer {
+  display: flex;
+  flex-direction: row;
+  margin-left: 50px;
 }
 
-p {
-  text-align: left;
+.buttonLink {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  width: 90px;
+  height: 40px;
+  border: 1px solid #ffffff;
+  margin: 0 10px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #7289da;
+  color: #ffffff;
+}
+
+.buttonLink:hover {
+  color: #ffffff;
+  text-decoration: none;
 }

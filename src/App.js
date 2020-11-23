@@ -29,7 +29,7 @@ function App() {
           </Switch>
           <TaskBar />
         </div>
-        {/*<ChatBot />*/}
+        <ChatBot />
       </div>
     </Router>
   );
