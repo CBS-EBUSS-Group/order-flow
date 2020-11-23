@@ -7,3 +7,8 @@
 .li {
   list-style-type: none;
 }
+
+.image {
+  width: 30px;
+  height: 30px;
+}

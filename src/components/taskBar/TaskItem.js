@@ -5,12 +5,15 @@ const TaskItem = ({ item }) => {
   return (
     <li className={styles.li}>
       {item.done && (
-        <div
-          style={{ backgroundColor: "red", height: "10px", width: "10px" }}
-        ></div>
+        <div>
+          <img src="green_mark.png" alt="greenMark" className={styles.image} />
+        </div>
       )}
       <b>{item.title}</b>
-      <p>{item.description}</p>
+      <ul>{item.subtask1}</ul>
+      <ul>{item.subtask2}</ul>
+      <ul>{item.subtask3}</ul>
+      <ul>{item.subtask4}</ul>
     </li>
   );
 };

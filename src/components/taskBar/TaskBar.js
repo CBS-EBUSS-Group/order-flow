@@ -9,11 +9,11 @@ const TaskBar = () => {
   return (
     <div className={styles.task_bar}>
       <h2>Tasks</h2>
-      <ul>
+      <ol>
         {tasks.map((task) => (
           <TaskItem key={task.id} item={task} />
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };
