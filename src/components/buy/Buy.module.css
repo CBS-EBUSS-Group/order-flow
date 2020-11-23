@@ -1,6 +1,8 @@
 .container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin: 0 50px;
 }
 
@@ -23,7 +25,21 @@
   text-align: left;
 }
 
-h1 {
+.orderPage {
+  display: flex;
+  justify-content: center;
+}
+
+.outerContainer {
+  width: 900px;
+  margin-top: 100px;
+}
+
+.heading {
+  margin-left: 55px;
+}
+
+/* h1 {
   margin-left: 50px;
   margin-top: 30px;
 }
@@ -34,7 +50,7 @@ h2 {
 
 h3 {
   text-align: left;
-}
+} */
 
 /* p {
   margin-left: 50px;
@@ -46,4 +62,8 @@ h3 {
   margin-left: 50px;
   margin-top: 50px;
   width: 140px;
+}
+
+.form {
+  margin-left: 50px;
 }

@@ -23,13 +23,13 @@ const Buy = () => {
   console.log(formValues);
 
   return (
-    <div className="page">
+    <div className={`page ${styles.orderPage}`}>
       {step === 1 && (
-        <Fragment>
-          <h1>Order Form</h1>
+        <div className={styles.outerContainer}>
+          <h1 className={styles.heading}>Order Form</h1>
           <div className={styles.container}>
             <Tile instrument={item} />
-            <div>
+            <div className={styles.form}>
               <h2>Account Balance: {balance} EUR</h2>
               <OrderForm
                 type={"buy"}
@@ -39,7 +39,7 @@ const Buy = () => {
               />
             </div>
           </div>
-        </Fragment>
+        </div>
       )}
       {step === 2 && (
         <Fragment>

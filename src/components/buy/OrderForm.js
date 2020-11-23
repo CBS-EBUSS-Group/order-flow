@@ -3,7 +3,7 @@ import { Button, Form, Col, Popover, OverlayTrigger } from "react-bootstrap";
 import styles from "./Buy.module.css";
 
 const OrderForm = ({ item, formValues, setFormValues }) => {
-  const { exchange, fees, orderType, price, count, ultimo } = formValues;
+  const { exchange, orderType, price, count, ultimo } = formValues;
   return (
     <Form>
       <Form.Row>
@@ -216,8 +216,12 @@ const OrderForm = ({ item, formValues, setFormValues }) => {
           </Form.Control>
         </Form.Group>
       </Form.Row>
-      <Button variant="primary">Next</Button>
-      <Button variant="light">Back</Button>
+      <Button variant="primary" style={{ width: "100px", marginRight: "10px" }}>
+        Next
+      </Button>
+      <Button variant="light" style={{ width: "100px" }}>
+        Back
+      </Button>
     </Form>
   );
 };
