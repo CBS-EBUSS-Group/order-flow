@@ -18,14 +18,16 @@ const Buy = () => {
   const [formValues, setFormValues] = useFormFields({
     exchange: "Direct",
     orderType: "Market Order",
-    price: 0,
-    count: 0,
+    price: "",
+    count: "",
     ultimo: "Immediately",
     condition: "Standard",
   });
   const orderPrice =
-    formValues.orderType === "Market Order" ? item.price : formValues.price;
-  const amount = orderPrice * formValues.count;
+    formValues.orderType === "Market Order"
+      ? item.price
+      : parseFloat(formValues.price);
+  const amount = orderPrice * parseInt(formValues.count);
   const fees = formValues.exchange === "Xetra" ? 1.75 : 0;
 
   const handleSubmit = (e) => {
@@ -34,17 +36,19 @@ const Buy = () => {
       addInstrument({
         ...item,
         price: orderPrice,
-        count: formValues.count,
+        count: parseInt(formValues.count),
       })
     );
     dispatch(addTransactionIn({ title: item.name, amount, pending: false }));
-    dispatch(
-      addTransactionIn({
-        title: "Transaction fees",
-        amount: fees,
-        pending: false,
-      })
-    );
+    if (fees > 0) {
+      dispatch(
+        addTransactionIn({
+          title: "Transaction fees",
+          amount: fees,
+          pending: false,
+        })
+      );
+    }
     dispatch(setItem({}));
     setStep(3);
   };

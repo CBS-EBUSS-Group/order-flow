@@ -11,7 +11,7 @@ export const accountSlice = createSlice({
   reducers: {
     addTransactionIn(state, action) {
       const { amount } = action.payload;
-      state.transactions.push(action.payload);
+      state.transactions.push({ ...action.payload, amount: -amount });
       state.balance -= amount;
     },
     addTransactionOut(state, action) {

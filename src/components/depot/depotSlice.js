@@ -19,7 +19,10 @@ export const depotSlice = createSlice({
         const price =
           (inventory.count * inventory.price + buy.count * buy.price) / count;
 
-        state.instruments = [...state, { ...inventory, price, count }];
+        state.instruments = [
+          ...state.instruments.filter((item) => item.id !== buy.id),
+          { ...inventory, price, count },
+        ];
       } else {
         state.instruments.push(buy);
       }
@@ -29,12 +32,21 @@ export const depotSlice = createSlice({
       const inventory = state.instruments.find(
         (instrument) => instrument.id === sell.id
       );
-      if (!inventory) return;
+      const remainder = inventory.count - sell.count;
 
-      state.instruments = [
-        ...state.instruments,
-        { ...inventory, count: inventory.count - sell.count },
-      ];
+      if (!inventory) return;
+      if (remainder < 0) return;
+
+      if (remainder === 0) {
+        state.instruments = [
+          ...state.instruments.filter((item) => item.id !== sell.id),
+        ];
+      } else {
+        state.instruments = [
+          ...state.instruments.filter((item) => item.id !== sell.id),
+          { ...inventory, count: inventory.count - sell.count },
+        ];
+      }
     },
   },
 });
