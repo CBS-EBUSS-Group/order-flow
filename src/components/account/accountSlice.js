@@ -1,16 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  balance: 4100,
-  transactions: [
-    {
-      title: "Transfer from Account no. 8123981238",
-      amount: 5000,
-      pending: false,
-    },
-    { title: "Alteryx", amount: -500, pending: false },
-    { title: "Amazon", amount: -400, pending: false },
-  ],
+  balance: 10000,
+  transactions: [],
 };
 
 export const accountSlice = createSlice({
