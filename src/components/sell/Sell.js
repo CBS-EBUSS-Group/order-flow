@@ -6,8 +6,8 @@ import OrderForm from "../buy/OrderForm";
 import Tile from "../buy/Tile";
 import useFormFields from "../../hooks";
 import { setItem } from "../../store/basketSlice";
-import { addInstrument } from "../depot/depotSlice";
-import { addTransactions } from "../account/accountSlice";
+import { removeInstrument } from "../depot/depotSlice";
+import { addTransactionOut, addTransactionIn } from "../account/accountSlice";
 import styles from "./Sell.module.css";
 
 const Sell = () => {
@@ -27,22 +27,27 @@ const Sell = () => {
     formValues.orderType === "Market Order" ? item.price : formValues.price;
   const amount = orderPrice * formValues.count;
   const fees = formValues.exchange === "Xetra" ? 1.75 : 0;
+  const pending = formValues.orderType === "Stop-Loss Order";
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // validation here
+    // das ist der bug
     dispatch(
-      addInstrument({
+      removeInstrument({
         wkn: item.wkn,
         name: item.name,
         price: orderPrice,
         count: formValues.count,
       })
     );
+    dispatch(addTransactionOut({ title: item.name, amount, pending }));
     dispatch(
-      addTransactions([
-        { title: item.name, amount },
-        { title: "Transaction fees", amount: fees },
-      ])
+      addTransactionIn({
+        title: "Transaction fees",
+        amount: fees,
+        pending: false,
+      })
     );
     dispatch(setItem({}));
     setStep(3);

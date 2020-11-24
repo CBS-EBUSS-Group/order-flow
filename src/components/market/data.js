@@ -59,28 +59,28 @@ const data = {
   ],
   indices: [
     {
-      id: 0,
+      id: 8,
       wkn: "A142NY",
       name: "iShares S&P 500 ETF",
       price: 6.23,
       img: "chart_sp500.png",
     },
     {
-      id: 1,
+      id: 9,
       wkn: "ETFL01",
       name: "Deka DAX ETF",
       price: 118.4,
       img: "chart_dax.png",
     },
     {
-      id: 2,
+      id: 10,
       wkn: "A2PFRC",
       name: "Vanguard Dow Jones ETF",
       price: 45.91,
       img: "chart_dow.png",
     },
     {
-      id: 3,
+      id: 11,
       wkn: "A0MW0M",
       name: "iShares Global Clean Energy ETF",
       price: 10.65,

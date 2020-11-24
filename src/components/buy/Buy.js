@@ -7,7 +7,7 @@ import Tile from "./Tile";
 import useFormFields from "../../hooks";
 import { setItem } from "../../store/basketSlice";
 import { addInstrument } from "../depot/depotSlice";
-import { addTransactions } from "../account/accountSlice";
+import { addTransactionIn } from "../account/accountSlice";
 import styles from "./Buy.module.css";
 
 const Buy = () => {
@@ -37,11 +37,13 @@ const Buy = () => {
         count: formValues.count,
       })
     );
+    dispatch(addTransactionIn({ title: item.name, amount, pending: false }));
     dispatch(
-      addTransactions([
-        { title: item.name, amount },
-        { title: "Transaction fees", amount: fees },
-      ])
+      addTransactionIn({
+        title: "Transaction fees",
+        amount: fees,
+        pending: false,
+      })
     );
     dispatch(setItem({}));
     setStep(3);
