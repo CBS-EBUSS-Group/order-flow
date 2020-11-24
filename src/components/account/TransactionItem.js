@@ -12,7 +12,7 @@ const TransactionItem = ({ item }) => {
       </span>
       <span style={amountStyle}>
         {item.amount >= 0 && "+"}
-        {item.amount} EUR
+        {item.amount.toFixed(2)} EUR
       </span>
     </li>
   );

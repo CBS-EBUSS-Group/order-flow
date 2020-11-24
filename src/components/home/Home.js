@@ -13,7 +13,7 @@ const Home = () => {
           <b>Depot Nr:</b> 12663390
         </p>
         <p>
-          <b>Buying Power:</b> {balance} EUR
+          <b>Buying Power:</b> {balance.toFixed(2)} EUR
         </p>
         <div className={styles.linkContainer}>
           <Link to="/market" className="buttonLink">

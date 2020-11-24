@@ -11,7 +11,7 @@ const Balance = () => {
       <div className={styles.inner}>
         <h1>Account</h1>
         <h4>Your current balance:</h4>
-        <p>{balance} EUR</p>
+        <p>{balance.toFixed(2)} EUR</p>
         <h4>History:</h4>
         <ul className={styles.ul}>
           {transactions.map((transaction, i) => (

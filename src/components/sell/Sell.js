@@ -78,7 +78,7 @@ const Sell = () => {
           <div className={styles.container}>
             <Tile instrument={item} />
             <div className={styles.form}>
-              <h2>Account Balance: {balance} EUR</h2>
+              <h2>Account Balance: {balance.toFixed(2)} EUR</h2>
               <OrderForm
                 type={"sell"}
                 item={item}
