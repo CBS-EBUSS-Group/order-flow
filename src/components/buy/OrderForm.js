@@ -1,8 +1,22 @@
 import React from "react";
-import { Button, Form, Col, Popover, OverlayTrigger } from "react-bootstrap";
+import {
+  Button,
+  Form,
+  Col,
+  Popover,
+  OverlayTrigger,
+  Alert,
+} from "react-bootstrap";
 import styles from "./Buy.module.css";
 
-const OrderForm = ({ item, formValues, setFormValues, setStep, type }) => {
+const OrderForm = ({
+  item,
+  formValues,
+  setFormValues,
+  setStep,
+  type,
+  error,
+}) => {
   const { exchange, orderType, price, count, ultimo, condition } = formValues;
   return (
     <Form>
@@ -243,10 +257,12 @@ const OrderForm = ({ item, formValues, setFormValues, setStep, type }) => {
           </Form.Control>
         </Form.Group>
       </Form.Row>
+      {error && <Alert variant="danger">{error.message}</Alert>}
       <Button
         variant="primary"
         style={{ width: "100px", marginRight: "10px" }}
         onClick={() => setStep(2)}
+        disabled={error}
       >
         Next
       </Button>

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "react-bootstrap";
 import OrderForm from "./OrderForm";
 import Tile from "./Tile";
-import useFormFields from "../../hooks";
+import { useFormFields, hasErrorsBuy } from "../../hooks";
 import { setItem } from "../../store/basketSlice";
 import { addInstrument } from "../depot/depotSlice";
 import { addTransactionIn } from "../account/accountSlice";
@@ -18,17 +18,23 @@ const Buy = () => {
   const [formValues, setFormValues] = useFormFields({
     exchange: "Direct",
     orderType: "Market Order",
-    price: "",
+    price: item.price,
     count: "",
     ultimo: "Immediately",
     condition: "Standard",
   });
+  const [error, setError] = useState(null);
+
   const orderPrice =
     formValues.orderType === "Market Order"
       ? item.price
       : parseFloat(formValues.price);
   const amount = orderPrice * parseInt(formValues.count);
   const fees = formValues.exchange === "Xetra" ? 1.75 : 0;
+
+  useEffect(() => {
+    setError(hasErrorsBuy(formValues, balance, fees));
+  }, [formValues, balance, fees]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -76,6 +82,7 @@ const Buy = () => {
                 formValues={formValues}
                 setFormValues={setFormValues}
                 setStep={setStep}
+                error={error}
               />
             </div>
           </div>

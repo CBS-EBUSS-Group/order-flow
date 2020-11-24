@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "react-bootstrap";
 import OrderForm from "../buy/OrderForm";
 import Tile from "../buy/Tile";
-import useFormFields from "../../hooks";
+import { useFormFields, hasErrorsSell } from "../../hooks";
 import { setItem } from "../../store/basketSlice";
 import { removeInstrument } from "../depot/depotSlice";
 import { addTransactionOut, addTransactionIn } from "../account/accountSlice";
@@ -18,11 +18,13 @@ const Sell = () => {
   const [formValues, setFormValues] = useFormFields({
     exchange: "Direct",
     orderType: "Market Order",
-    price: "",
+    price: item.price,
     count: item.count,
     ultimo: "Immediately",
     condition: "Standard",
   });
+  const [error, setError] = useState(null);
+
   const orderPrice =
     formValues.orderType === "Market Order"
       ? item.price
@@ -30,6 +32,10 @@ const Sell = () => {
   const amount = orderPrice * parseInt(formValues.count);
   const fees = formValues.exchange === "Xetra" ? 1.75 : 0;
   const pending = formValues.orderType === "Stop-Loss Order";
+
+  useEffect(() => {
+    setError(hasErrorsSell(formValues, item));
+  }, [formValues, item]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -79,6 +85,7 @@ const Sell = () => {
                 formValues={formValues}
                 setFormValues={setFormValues}
                 setStep={setStep}
+                error={error}
               />
             </div>
           </div>
