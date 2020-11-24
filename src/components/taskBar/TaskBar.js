@@ -8,8 +8,8 @@ const TaskBar = () => {
 
   return (
     <div className={styles.task_bar}>
-      <h2>Tasks</h2>
-      <ol>
+      <h2 className={styles.heading}>To-Do</h2>
+      <ol className={styles.ol}>
         {tasks.map((task) => (
           <TaskItem key={task.id} item={task} />
         ))}

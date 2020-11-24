@@ -5,10 +5,43 @@
 }
 
 .li {
+  display: flex;
+  flex-direction: column;
   list-style-type: none;
+  margin-bottom: 20px;
+}
+
+.filledCheckbox {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .image {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ffffff;
+  border-radius: 13px;
+}
+
+.emptyCheckbox {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 13px;
+  border: 1px solid #ffffff;
+  margin-right: 10px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ol {
+  padding: 0;
+  margin-left: 40px;
+}
+
+.heading {
+  margin: 20px 0 30px 40px;
 }
