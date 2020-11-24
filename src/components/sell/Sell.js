@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "react-bootstrap";
-import OrderForm from "./OrderForm";
-import Tile from "./Tile";
+import OrderForm from "../buy/OrderForm";
+import Tile from "../buy/Tile";
 import useFormFields from "../../hooks";
 import { setItem } from "../../store/basketSlice";
 import { addInstrument } from "../depot/depotSlice";
 import { addTransactions } from "../account/accountSlice";
-import styles from "./Buy.module.css";
+import styles from "./Sell.module.css";
 
-const Buy = () => {
+const Sell = () => {
   const dispatch = useDispatch();
   const item = useSelector((state) => state.basket.item);
   const { balance } = useSelector((state) => state.account);
@@ -19,7 +19,7 @@ const Buy = () => {
     exchange: "Direct",
     orderType: "Market Order",
     price: 0,
-    count: 0,
+    count: item.count,
     ultimo: "Immediately",
     condition: "Standard",
   });
@@ -32,7 +32,8 @@ const Buy = () => {
     e.preventDefault();
     dispatch(
       addInstrument({
-        ...item,
+        wkn: item.wkn,
+        name: item.name,
         price: orderPrice,
         count: formValues.count,
       })
@@ -48,7 +49,7 @@ const Buy = () => {
   };
 
   if (step === 4) {
-    return <Redirect to="/market" />;
+    return <Redirect to="/depot" />;
   }
 
   if (step === 3) {
@@ -65,7 +66,7 @@ const Buy = () => {
             <div className={styles.form}>
               <h2>Account Balance: {balance} EUR</h2>
               <OrderForm
-                type={"buy"}
+                type={"sell"}
                 item={item}
                 formValues={formValues}
                 setFormValues={setFormValues}
@@ -133,7 +134,7 @@ const Buy = () => {
               style={{ marginRight: "10px" }}
               onClick={(e) => handleSubmit(e)}
             >
-              Confirm & Buy
+              Confirm & Sell
             </Button>
             <Button variant="light" onClick={() => setStep(1)}>
               Back
@@ -145,4 +146,4 @@ const Buy = () => {
   );
 };
 
-export default Buy;
+export default Sell;

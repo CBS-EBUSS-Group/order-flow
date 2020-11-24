@@ -2,9 +2,30 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   instruments: [
-    { wkn: "AYX", name: "Alteryx", price: 50.67, count: 20 },
-    { wkn: "MTU", name: "MTU Aeroengines", price: 20.15, count: 30 },
-    { wkn: "AMZN", name: "Amazon", price: 1050.23, count: 1 },
+    {
+      id: 0,
+      wkn: "A1CX3T",
+      name: "Tesla",
+      price: 413.8,
+      count: 20,
+      img: "chart_tesla.png",
+    },
+    {
+      id: 1,
+      wkn: "823212",
+      name: "Lufthansa",
+      price: 9.47,
+      count: 50,
+      img: "chart_lufthansa.png",
+    },
+    {
+      id: 2,
+      wkn: "A2PSR2",
+      name: "Biontech",
+      price: 87.8,
+      count: 10,
+      img: "chart_biontech.png",
+    },
   ],
 };
 

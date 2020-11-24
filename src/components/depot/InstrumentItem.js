@@ -1,22 +1,32 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { setItem } from "../../store/basketSlice";
 import { Link } from "react-router-dom";
 import styles from "./Depot.module.css";
 
-const InstrumentItem = ({ item }) => {
+const InstrumentItem = ({ item, setRedirect }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(setItem(item));
+    setRedirect(true);
+  };
+
   return (
     <li className={styles.listItem} style={{ marginTop: "30px" }}>
       <p style={{ margin: "0" }}>
         <span>{item.wkn} | </span>
         <span>{item.name} | </span>
         <span>{item.price} EUR | </span>
-        <span>{item.count}</span>
+        <span>{item.count} Shares</span>
       </p>
       <Link
         to={{ pathname: "/sell", state: item }}
         className="buttonLink"
         style={{ display: "inline" }}
+        onClick={() => handleClick()}
       >
-        absichern
+        Sell
       </Link>
     </li>
   );

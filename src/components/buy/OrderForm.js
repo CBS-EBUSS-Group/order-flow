@@ -3,7 +3,7 @@ import { Button, Form, Col, Popover, OverlayTrigger } from "react-bootstrap";
 import styles from "./Buy.module.css";
 
 const OrderForm = ({ item, formValues, setFormValues, setStep, type }) => {
-  const { exchange, orderType, price, count, ultimo } = formValues;
+  const { exchange, orderType, price, count, ultimo, condition } = formValues;
   return (
     <Form>
       <Form.Row>
@@ -95,28 +95,12 @@ const OrderForm = ({ item, formValues, setFormValues, setStep, type }) => {
                   <br />
                   <br />
                   <b>Stop Order</b>
-                  <br />
-                  A buy stop order is entered at a stop price above the current
-                  market price. Investors generally use a buy stop order to
-                  limit a loss or protect a profit on a stock that they have
+                  <br />A buy stop order is entered at a stop price above the
+                  current market price. Investors generally use a buy stop order
+                  to limit a loss or protect a profit on a stock that they have
                   sold short. A sell stop order is entered at a stop price below
                   the current market price. Investors generally use a sell stop
                   order to limit a loss or protect a profit on a stock they own.
-                  <br />
-                  <br />
-                  <b>Fill-Or-KIll</b>
-                  <br />
-                  A Fill-Or-Kill order is an order to buy or sell a stock that
-                  must be executed immediately in its entirety; otherwise, the
-                  entire order will be cancelled (i.e., no partial execution of
-                  the order is allowed).
-                  <br />
-                  <br />
-                  <b>Immediate-Or-Cancel</b>
-                  <br />
-                  An Immediate-Or-Cancel (IOC) order is an order to buy or sell
-                  a stock that must be executed immediately. Any portion of an
-                  IOC order that cannot be filled immediately will be cancelled.
                 </Popover.Content>
               </Popover>
             }
@@ -134,8 +118,6 @@ const OrderForm = ({ item, formValues, setFormValues, setStep, type }) => {
             <option>Limit Order</option>
             {type === "sell" && <option>Stop-Loss Order</option>}
             <option>Stop Order</option>
-            <option>Fill-Or-KIll</option>
-            <option>Immediate-Or-Cancel</option>
           </Form.Control>
         </Form.Group>
 
@@ -213,6 +195,51 @@ const OrderForm = ({ item, formValues, setFormValues, setStep, type }) => {
             <option>Immediately</option>
             <option>End of Day</option>
             <option>End of Month</option>
+          </Form.Control>
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridState">
+          <OverlayTrigger
+            trigger="hover"
+            placement="auto"
+            overlay={
+              <Popover id="popover-basic">
+                <Popover.Title as="h3">
+                  <b>Order Condition</b>
+                </Popover.Title>
+                <Popover.Content>
+                  Description
+                  <br />
+                  <br />
+                  <b>Fill-Or-KIll</b>
+                  <br />
+                  A Fill-Or-Kill order is an order to buy or sell a stock that
+                  must be executed immediately in its entirety; otherwise, the
+                  entire order will be cancelled (i.e., no partial execution of
+                  the order is allowed).
+                  <br />
+                  <br />
+                  <b>Immediate-Or-Cancel</b>
+                  <br />
+                  An Immediate-Or-Cancel (IOC) order is an order to buy or sell
+                  a stock that must be executed immediately. Any portion of an
+                  IOC order that cannot be filled immediately will be cancelled.
+                </Popover.Content>
+              </Popover>
+            }
+          >
+            <Form.Label>Order Condition</Form.Label>
+          </OverlayTrigger>
+          <Form.Control
+            as="select"
+            defaultValue="Choose..."
+            name="condition"
+            value={condition}
+            onChange={(e) => setFormValues(e)}
+          >
+            <option>Standard</option>
+            <option>Fill-Or-KIll</option>
+            <option>Immediate-Or-Cancel</option>
           </Form.Control>
         </Form.Group>
       </Form.Row>

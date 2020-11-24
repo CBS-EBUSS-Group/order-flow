@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 50px;
+}
+
+.inner {
+  padding: 20px;
+  margin: 20px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background-color: #99aab5;
+  font-weight: bold;
+}
+
+.img {
+  width: calc(363px * 0.75);
+  border: 1px solid #23272a;
+  border-radius: 5px;
+}
+
+.chart {
+  text-align: left;
+}
+
+.orderPage {
+  display: flex;
+  justify-content: center;
+}
+
+.outerContainer {
+  width: 900px;
+  margin-top: 100px;
+}
+
+.heading {
+  margin-left: 55px;
+}
+
+.checkout {
+  margin-top: 150px;
+}
+
+.textItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+  width: 400px;
+}
+
+.form {
+  margin-left: 50px;
+}
+
+.linkContainer {
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  margin: 50px auto;
+}

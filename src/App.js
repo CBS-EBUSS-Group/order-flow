@@ -9,6 +9,7 @@ import Home from "./components/home";
 import Account from "./components/account";
 import Depot from "./components/depot";
 import Market from "./components/market";
+import Sell from "./components/sell";
 import ChatBot from "./components/chatbot";
 import styles from "./App.module.css";
 
@@ -21,6 +22,7 @@ function App() {
           <Switch>
             <Route path="/counter" component={Counter} />
             <Route path="/buy" component={Buy} />
+            <Route path="/sell" component={Sell} />
             <Route path="/account" component={Account} />
             <Route path="/depot" component={Depot} />
             <Route path="/market" component={Market} />
