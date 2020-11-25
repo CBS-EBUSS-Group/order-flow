@@ -98,7 +98,7 @@ const Buy = () => {
             <div className={styles.form}>
               <h2>
                 Account Balance:{" "}
-                {new Intl.NumberFormat("de-DE").format(balance)} EUR
+                {new Intl.NumberFormat("de-DE").format(balance.toFixed(2))} EUR
               </h2>
               <OrderForm
                 type={"buy"}
@@ -142,7 +142,9 @@ const Buy = () => {
           <p className={styles.textItem}>
             <b>Price: </b>
             <span>
-              {new Intl.NumberFormat("de-DE").format(parseFloat(orderPrice))}{" "}
+              {new Intl.NumberFormat("de-DE").format(
+                parseFloat(orderPrice.toFixed(2))
+              )}{" "}
               EUR
             </span>
           </p>
@@ -152,7 +154,9 @@ const Buy = () => {
           </p>
           <p className={styles.textItem}>
             <b>Order Value: </b>
-            <span>{new Intl.NumberFormat("de-DE").format(amount)} EUR</span>
+            <span>
+              {new Intl.NumberFormat("de-DE").format(amount.toFixed(2))} EUR
+            </span>
           </p>
           <p className={styles.textItem}>
             <b>Order Type: </b>
