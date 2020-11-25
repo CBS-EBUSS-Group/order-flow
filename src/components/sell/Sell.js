@@ -8,12 +8,14 @@ import { useFormFields, hasErrorsSell } from "../../hooks";
 import { setItem } from "../../store/basketSlice";
 import { removeInstrument } from "../depot/depotSlice";
 import { addTransactionOut, addTransactionIn } from "../account/accountSlice";
+import { setDone } from "../taskBar/taskSlice";
 import styles from "./Sell.module.css";
 
 const Sell = () => {
   const dispatch = useDispatch();
   const item = useSelector((state) => state.basket.item);
   const { balance } = useSelector((state) => state.account);
+  const tasks = useSelector((state) => state.tasks);
   const [step, setStep] = useState(1);
   const [formValues, setFormValues] = useFormFields({
     exchange: "Direct",
@@ -59,6 +61,14 @@ const Sell = () => {
       );
     }
     dispatch(setItem({}));
+    // Set tasks fulfilled 4
+    if (
+      !tasks[3].done &&
+      formValues.orderType === "Stop-Loss Order" &&
+      tasks[2].done
+    ) {
+      dispatch(setDone(4));
+    }
     setStep(3);
   };
 

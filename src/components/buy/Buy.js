@@ -15,6 +15,7 @@ const Buy = () => {
   const dispatch = useDispatch();
   const item = useSelector((state) => state.basket.item);
   const { balance } = useSelector((state) => state.account);
+  const tasks = useSelector((state) => state.tasks);
   const [step, setStep] = useState(1);
   const [formValues, setFormValues] = useFormFields({
     exchange: "Direct",
@@ -57,7 +58,7 @@ const Buy = () => {
       );
     }
     dispatch(setItem({}));
-    // Set task fulfilled
+    // Set tasks fulfilled 1
     if (
       item.id > 7 &&
       formValues.orderType === "Market Order" &&
@@ -65,6 +66,17 @@ const Buy = () => {
     ) {
       dispatch(setDone(1));
     }
+    // Set tasks fulfilled 3
+    if (
+      !tasks[2].done &&
+      item.id < 8 &&
+      formValues.exchange === "Xetra" &&
+      formValues.condition === "Fill-Or-Kill" &&
+      tasks[1].done
+    ) {
+      dispatch(setDone(3));
+    }
+
     setStep(3);
   };
 

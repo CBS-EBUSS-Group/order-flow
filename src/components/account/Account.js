@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setDone } from "../taskBar/taskSlice";
 import Transactionitem from "./TransactionItem";
 import styles from "./Account.module.css";
 
 const Balance = () => {
+  const dispatch = useDispatch();
   const { balance, transactions } = useSelector((state) => state.account);
+  const tasks = useSelector((state) => state.tasks);
+
+  useEffect(() => {
+    // Set tasks fulfilled 5
+    if (!tasks[4].done && tasks[3].done) {
+      dispatch(setDone(5));
+    }
+  }, [tasks, dispatch]);
+
   return (
     <div className={`page ${styles.container}`}>
       <div className={styles.inner}>

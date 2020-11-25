@@ -225,7 +225,7 @@ const OrderForm = ({
                   Description
                   <br />
                   <br />
-                  <b>Fill-Or-KIll</b>
+                  <b>Fill-Or-Kill</b>
                   <br />
                   A Fill-Or-Kill order is an order to buy or sell a stock that
                   must be executed immediately in its entirety; otherwise, the
@@ -252,7 +252,7 @@ const OrderForm = ({
             onChange={(e) => setFormValues(e)}
           >
             <option>Standard</option>
-            <option>Fill-Or-KIll</option>
+            <option>Fill-Or-Kill</option>
             <option>Immediate-Or-Cancel</option>
           </Form.Control>
         </Form.Group>

@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 
 const Home = () => {
   return (
-    <div className={styles.home}>
+    <div className={`page ${styles.home}`}>
       <h1>Welcome to OrderFlow!</h1>
       <p>
         Looking at the stock market and making an order for the first time can

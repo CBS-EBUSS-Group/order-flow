@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setDone } from "../taskBar/taskSlice";
 import InstrumentItem from "./InstrumentItem";
 import styles from "./Depot.module.css";
 
 const Depot = () => {
+  const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const { instruments } = useSelector((state) => state.depot);
+  const tasks = useSelector((state) => state.tasks);
+
+  useEffect(() => {
+    // Set tasks fulfilled 2
+    if (!tasks[1].done && tasks[0].done) {
+      dispatch(setDone(2));
+    }
+  }, [tasks, dispatch]);
 
   if (redirect) {
     return <Redirect to="/sell" />;
