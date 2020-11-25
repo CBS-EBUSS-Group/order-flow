@@ -23,7 +23,7 @@ export function hasErrorsBuy(state, balance, fees) {
     return { field: "price", message: "Please enter a valid price" };
   }
 
-  if (!parseInt(count) || parseInt(count) <= 0) {
+  if (!parseInt(count) || parseInt(count) < 1) {
     return { field: "count", message: "Please enter a valid count" };
   }
 
@@ -41,7 +41,7 @@ export function hasErrorsSell(state, item) {
     return { field: "price", message: "Please enter a valid price" };
   }
 
-  if (!parseInt(count) || parseInt(count) <= 0) {
+  if (!parseInt(count) || parseInt(count) < 1) {
     return { field: "count", message: "Please enter a valid count" };
   }
 

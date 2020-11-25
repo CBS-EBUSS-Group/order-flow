@@ -35,7 +35,7 @@ export const depotSlice = createSlice({
       const remainder = inventory.count - sell.count;
 
       if (!inventory) return;
-      if (remainder < 0) return;
+      if (remainder < 1) return;
 
       if (remainder === 0) {
         state.instruments = [

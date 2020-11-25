@@ -30,7 +30,7 @@ const Buy = () => {
   const orderPrice =
     formValues.orderType === "Market Order"
       ? item.price
-      : parseFloat(formValues.price);
+      : parseFloat(formValues.price.toFixed(2));
   const amount = orderPrice * parseInt(formValues.count);
   const fees = formValues.exchange === "Xetra" ? 1.75 : 0;
 
