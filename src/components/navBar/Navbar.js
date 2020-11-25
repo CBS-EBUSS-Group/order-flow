@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <div className={styles.nav}>
       <Link to="/" className={styles.title}>
-        Order Flow
+        OrderFlow
       </Link>
     </div>
   );

@@ -1,17 +1,41 @@
-import React, { Fragment } from "react";
-import { useSelector } from "react-redux";
+import React, { Fragment, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useRaf } from "react-use";
+import { setVisibility } from "./botSlice";
 import styles from "./ChatBot.module.css";
 
-const loremIpsum =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+const START_POS = -290;
+const END_POS = 40;
 
-const ChatBot = () => {
+const ChatBot = ({ dialogue }) => {
+  const dispatch = useDispatch();
+  const progress = useRaf(800);
+  const offset = (START_POS + (END_POS - START_POS) * progress).toFixed();
+
+  const handleDismiss = () => {
+    dispatch(setVisibility({ visible: false }));
+  };
+
+  useEffect(() => {
+    console.log(progress);
+  }, [progress]);
+
   return (
     <Fragment>
-      <div className={styles.bubble}>
-        <p className={styles.dialogue}>{loremIpsum}</p>
-      </div>
-      <img src="linda.png" alt="linda" className={styles.image} />
+      {progress === 1 && (
+        <div className={styles.bubble} onClick={handleDismiss}>
+          {dialogue.map((text) => (
+            <p className={styles.dialogue}>{text}</p>
+          ))}
+        </div>
+      )}
+      <img
+        onClick={handleDismiss}
+        src="linda.png"
+        alt="linda"
+        className={styles.image}
+        style={{ right: offset + "px" }}
+      />
     </Fragment>
   );
 };

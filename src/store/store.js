@@ -4,6 +4,7 @@ import tasksReducer from "../components/taskBar/taskSlice";
 import accountReducer from "../components/account/accountSlice";
 import depotReducer from "../components/depot/depotSlice";
 import basketReducer from "./basketSlice";
+import botReducer from "../components/chatbot/botSlice";
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     account: accountReducer,
     depot: depotReducer,
     basket: basketReducer,
+    bot: botReducer,
   },
 });

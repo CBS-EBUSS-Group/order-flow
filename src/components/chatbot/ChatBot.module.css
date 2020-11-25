@@ -1,9 +1,9 @@
 .image {
   position: fixed;
-  bottom: 0;
-  right: 40px;
+  bottom: 10px;
   width: 250px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .bubble {
@@ -17,6 +17,7 @@
   border: 1px solid grey;
   border-radius: 30px;
   background-color: grey;
+  cursor: pointer;
 }
 
 .dialogue {

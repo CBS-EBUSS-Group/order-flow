@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/navBar";
 import TaskBar from "./components/taskBar";
@@ -14,6 +15,7 @@ import ChatBot from "./components/chatbot";
 import styles from "./App.module.css";
 
 function App() {
+  const { visible, dialogue } = useSelector((state) => state.bot);
   return (
     <Router>
       <div className={styles.app}>
@@ -31,7 +33,7 @@ function App() {
           </Switch>
           <TaskBar />
         </div>
-        <ChatBot />
+        {visible && <ChatBot dialogue={dialogue} />}
       </div>
     </Router>
   );

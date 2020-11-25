@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className={`page ${styles.container}`}>
       <div className={styles.innerBox}>
-        <h1>Your Account Overview</h1>
+        <h1>Overview</h1>
         <p>
           <b>Depot Nr:</b> 12663390
         </p>

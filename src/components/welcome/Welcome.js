@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 const Home = () => {
   return (
     <div className={styles.home}>
-      <h1>Welcome to UserFlow!</h1>
+      <h1>Welcome to OrderFlow!</h1>
       <p>
         Looking at the stock market and making an order for the first time can
         be overwhelming sometimes.
@@ -19,7 +19,7 @@ const Home = () => {
         make you a stock market expert in no time!
         <br />
         <br />
-        Linda, our Stock Investment Pro will guide you along the way :-)
+        Linda, our Stock Investment Pro will guide you along the way 🙂
       </p>
       <Button className={styles.btn} variant="primary" href="/">
         Get Started
