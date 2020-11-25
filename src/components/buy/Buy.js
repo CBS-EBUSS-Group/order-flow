@@ -143,9 +143,7 @@ const Buy = () => {
           <p className={styles.textItem}>
             <b>Price: </b>
             <span>
-              {new Intl.NumberFormat("de-DE").format(
-                parseFloat(orderPrice.toFixed(2))
-              )}{" "}
+              {new Intl.NumberFormat("de-DE").format(parseFloat(orderPrice))}{" "}
               EUR
             </span>
           </p>
@@ -155,9 +153,7 @@ const Buy = () => {
           </p>
           <p className={styles.textItem}>
             <b>Order Value: </b>
-            <span>
-              {new Intl.NumberFormat("de-DE").format(amount.toFixed(2))} EUR
-            </span>
+            <span>{new Intl.NumberFormat("de-DE").format(amount)} EUR</span>
           </p>
           <p className={styles.textItem}>
             <b>Order Type: </b>
