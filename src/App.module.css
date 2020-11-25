@@ -1,6 +1,8 @@
 .content {
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
+  height: 100%;
   justify-content: space-between;
+  overflow: auto;
 }

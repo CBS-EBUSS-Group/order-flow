@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  visible: true,
+  visible: false,
   dialogue: [
     "Hey there! I’m Linda. I’m happy to help you buy and sell stocks. It’s way easier than you might think 🙂",
     "This is your account overview. Here you can see your Depot Nr as well as your current Buying Power. Furthermore, you can choose to perform a Buy order and check your Depot as well as your Account. On the right you can see your first tasks that you will be doing to get you started with stock investments.",

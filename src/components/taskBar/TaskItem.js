@@ -18,10 +18,9 @@ const TaskItem = ({ item }) => {
         )}
         <b>{item.title}</b>
       </div>
-      <ul>{item.subtask1}</ul>
-      <ul>{item.subtask2}</ul>
-      <ul>{item.subtask3}</ul>
-      <ul>{item.subtask4}</ul>
+      {item.subtasks.map((subtask) => (
+        <ol>{subtask}</ol>
+      ))}
     </li>
   );
 };

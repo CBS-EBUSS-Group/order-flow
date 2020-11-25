@@ -8,6 +8,7 @@ import { useFormFields, hasErrorsBuy } from "../../hooks";
 import { setItem } from "../../store/basketSlice";
 import { addInstrument } from "../depot/depotSlice";
 import { addTransactionIn } from "../account/accountSlice";
+import { setDone } from "../taskBar/taskSlice";
 import styles from "./Buy.module.css";
 
 const Buy = () => {
@@ -56,6 +57,14 @@ const Buy = () => {
       );
     }
     dispatch(setItem({}));
+    // Set task fulfilled
+    if (
+      item.id > 7 &&
+      formValues.orderType === "Market Order" &&
+      formValues.condition === "Standard"
+    ) {
+      dispatch(setDone(1));
+    }
     setStep(3);
   };
 

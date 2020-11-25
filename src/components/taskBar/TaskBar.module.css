@@ -35,11 +35,12 @@
 .titleRow {
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 10px;
 }
 
 .ol {
   padding: 0;
-  margin-left: 40px;
+  margin: 0 20px;
 }
 
 .heading {
