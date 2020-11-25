@@ -30,8 +30,9 @@ const Buy = () => {
   const orderPrice =
     formValues.orderType === "Market Order"
       ? item.price
-      : parseFloat(formValues.price.toFixed(2));
-  const amount = orderPrice * parseInt(formValues.count);
+      : parseFloat(formValues.price).toFixed(2);
+  const orderCount = parseInt(formValues.count).toFixed(2);
+  const amount = orderPrice * orderCount;
   const fees = formValues.exchange === "Xetra" ? 1.75 : 0;
 
   useEffect(() => {
@@ -44,7 +45,7 @@ const Buy = () => {
       addInstrument({
         ...item,
         price: orderPrice,
-        count: parseInt(formValues.count),
+        count: orderCount,
       })
     );
     dispatch(addTransactionIn({ title: item.name, amount, pending: false }));

@@ -30,8 +30,9 @@ const Sell = () => {
   const orderPrice =
     formValues.orderType === "Market Order"
       ? item.price
-      : parseFloat(formValues.price.toFixed(2));
-  const amount = orderPrice * parseInt(formValues.count);
+      : parseFloat(formValues.price).toFixed(2);
+  const orderCount = parseInt(formValues.count).toFixed(2);
+  const amount = orderPrice * orderCount;
   const fees = formValues.exchange === "Xetra" ? 1.75 : 0;
   const pending = formValues.orderType === "Stop-Loss Order";
 
@@ -47,7 +48,7 @@ const Sell = () => {
       removeInstrument({
         ...item,
         price: orderPrice,
-        count: formValues.count,
+        count: orderCount,
       })
     );
     dispatch(addTransactionOut({ title: item.name, amount, pending }));
