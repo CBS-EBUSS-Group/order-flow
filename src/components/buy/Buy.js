@@ -31,7 +31,7 @@ const Buy = () => {
     formValues.orderType === "Market Order"
       ? item.price
       : parseFloat(formValues.price).toFixed(2);
-  const orderCount = parseInt(formValues.count).toFixed(2);
+  const orderCount = parseInt(formValues.count);
   const amount = orderPrice * orderCount;
   const fees = formValues.exchange === "Xetra" ? 1.75 : 0;
 

@@ -18,7 +18,7 @@ const InstrumentItem = ({ item, setRedirect }) => {
         <span>{item.wkn} | </span>
         <span>{item.name} | </span>
         <span>{new Intl.NumberFormat("de-DE").format(item.price)} EUR | </span>
-        <span>{item.count} Shares</span>
+        <span>{new Intl.NumberFormat("de-DE").format(item.count)} Shares</span>
       </p>
       <Link
         to={{ pathname: "/sell", state: item }}
