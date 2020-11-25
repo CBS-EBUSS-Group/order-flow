@@ -17,9 +17,7 @@ const InstrumentItem = ({ item, setRedirect }) => {
       <p style={{ margin: "0" }}>
         <span>{item.wkn} | </span>
         <span>{item.name} | </span>
-        <span>
-          {new Intl.NumberFormat("de-DE").format(item.price.toFixed(2))} EUR |{" "}
-        </span>
+        <span>{new Intl.NumberFormat("de-DE").format(item.price)} EUR | </span>
         <span>{item.count} Shares</span>
       </p>
       <Link

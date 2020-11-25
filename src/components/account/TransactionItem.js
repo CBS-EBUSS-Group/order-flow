@@ -12,7 +12,7 @@ const TransactionItem = ({ item }) => {
       </span>
       <span style={amountStyle}>
         {item.amount >= 0 && "+"}
-        {new Intl.NumberFormat("de-DE").format(item.amount.toFixed(2))} EUR
+        {new Intl.NumberFormat("de-DE").format(item.amount)} EUR
       </span>
     </li>
   );
