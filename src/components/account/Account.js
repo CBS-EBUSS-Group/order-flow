@@ -22,7 +22,7 @@ const Balance = () => {
       <div className={styles.inner}>
         <h1>Account</h1>
         <h4>Your current balance:</h4>
-        <p>{balance.toFixed(2)} EUR</p>
+        <p>{new Intl.NumberFormat("de-DE").format(balance)} EUR</p>
         <h4>History:</h4>
         <ul className={styles.ul}>
           {transactions.map((transaction, i) => (

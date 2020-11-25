@@ -96,7 +96,10 @@ const Buy = () => {
           <div className={styles.container}>
             <Tile instrument={item} />
             <div className={styles.form}>
-              <h2>Account Balance: {balance.toFixed(2)} EUR</h2>
+              <h2>
+                Account Balance:{" "}
+                {new Intl.NumberFormat("de-DE").format(balance)} EUR
+              </h2>
               <OrderForm
                 type={"buy"}
                 item={item}
@@ -134,11 +137,14 @@ const Buy = () => {
           </p>
           <p className={styles.textItem}>
             <b>Count: </b>
-            <span>{formValues.count}</span>
+            <span>{parseInt(formValues.count)}</span>
           </p>
           <p className={styles.textItem}>
             <b>Price: </b>
-            <span>{orderPrice} EUR</span>
+            <span>
+              {new Intl.NumberFormat("de-DE").format(parseFloat(orderPrice))}{" "}
+              EUR
+            </span>
           </p>
           <p className={styles.textItem}>
             <b>Additional Fees: </b>
@@ -146,7 +152,7 @@ const Buy = () => {
           </p>
           <p className={styles.textItem}>
             <b>Order Value: </b>
-            <span>{amount} EUR</span>
+            <span>{new Intl.NumberFormat("de-DE").format(amount)} EUR</span>
           </p>
           <p className={styles.textItem}>
             <b>Order Type: </b>
