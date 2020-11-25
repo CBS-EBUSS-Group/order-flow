@@ -42,8 +42,6 @@ const Sell = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // validation here
-    // das ist der bug
     dispatch(
       removeInstrument({
         ...item,

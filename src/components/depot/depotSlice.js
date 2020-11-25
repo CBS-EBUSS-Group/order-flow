@@ -32,10 +32,9 @@ export const depotSlice = createSlice({
       const inventory = state.instruments.find(
         (instrument) => instrument.id === sell.id
       );
-      const remainder = inventory.count - sell.count;
-
       if (!inventory) return;
-      if (remainder < 1) return;
+
+      const remainder = inventory.count - sell.count;
 
       if (remainder === 0) {
         state.instruments = [
@@ -44,7 +43,7 @@ export const depotSlice = createSlice({
       } else {
         state.instruments = [
           ...state.instruments.filter((item) => item.id !== sell.id),
-          { ...inventory, count: inventory.count - sell.count },
+          { ...inventory, count: remainder },
         ];
       }
     },
