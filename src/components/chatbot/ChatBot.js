@@ -9,16 +9,12 @@ const END_POS = 40;
 
 const ChatBot = ({ dialogue }) => {
   const dispatch = useDispatch();
-  const progress = useRaf(800);
+  const progress = useRaf(800, 50);
   const offset = (START_POS + (END_POS - START_POS) * progress).toFixed();
 
   const handleDismiss = () => {
     dispatch(setVisibility({ visible: false }));
   };
-
-  useEffect(() => {
-    console.log(progress);
-  }, [progress]);
 
   return (
     <Fragment>

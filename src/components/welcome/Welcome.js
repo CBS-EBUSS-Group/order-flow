@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from "react";
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import DisclaimerModal from "./DisclaimerModal";
 import styles from "./Welcome.module.css";

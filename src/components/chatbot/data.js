@@ -44,7 +44,7 @@ const text = {
     "Welcome to your account page. Paid amounts are marked in red, received amounts in green and pending amounts in yellow. You can see your total balance at the top",
   ],
   congratulateAllTasks: [
-    "Congratulations! You’ve completed all your tasks and have acquired the basics of stock investing. Have fun using OrderFlow!",
+    "Congratulations!🎉 You’ve completed all your tasks and have acquired the basics of stock investing. Have fun using OrderFlow!",
   ],
 };
 

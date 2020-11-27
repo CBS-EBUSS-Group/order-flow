@@ -16,6 +16,12 @@ const Balance = () => {
   );
 
   useEffect(() => {
+    if (!hasVisitedAccounts) {
+      dispatch(
+        setVisibility({ visibility: true, dialogue: "firstAccountsPageVisit" })
+      );
+      dispatch(setFlag({ id: "hasVisitedAccounts", value: true }));
+    }
     // Set tasks fulfilled 5
     if (!tasks[4].done && tasks[3].done) {
       dispatch(setDone(5));
@@ -25,13 +31,6 @@ const Balance = () => {
         );
         dispatch(setFlag({ id: "hasCongratulatedForAllTasks", value: true }));
       }
-      return;
-    }
-    if (!hasVisitedAccounts) {
-      dispatch(
-        setVisibility({ visibility: true, dialogue: "firstAccountsPageVisit" })
-      );
-      dispatch(setFlag({ id: "hasVisitedAccounts", value: true }));
     }
   }, [tasks, hasVisitedAccounts, hasCongratulatedForAllTasks, dispatch]);
 

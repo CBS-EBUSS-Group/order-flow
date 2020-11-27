@@ -22,7 +22,7 @@ const Sell = () => {
     orderType: "Market Order",
     price: item.price,
     count: item.count,
-    ultimo: "Immediately",
+    ultimo: "Automatic",
     condition: "Standard",
   });
   const [error, setError] = useState(null);

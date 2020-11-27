@@ -306,7 +306,7 @@ const OrderForm = ({
             value={condition}
             onChange={(e) => setFormValues(e)}
           >
-            <option>None</option>
+            <option>Standard</option>
             <option>Fill-Or-Kill</option>
             <option>Immediate-Or-Cancel</option>
           </Form.Control>
