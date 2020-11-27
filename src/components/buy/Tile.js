@@ -7,7 +7,10 @@ const Tile = ({ instrument }) => {
       <div className={styles.inner}>
         <p>{instrument.name}</p>
         <img
-          src={instrument.img}
+          src={
+            "https://raw.githubusercontent.com/CBS-EBUSS-Group/order-flow/master/public/" +
+            instrument.img
+          }
           alt={instrument.name}
           className={styles.img}
         />
