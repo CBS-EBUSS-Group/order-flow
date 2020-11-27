@@ -8,7 +8,7 @@ const TaskItem = ({ item }) => {
         {item.done ? (
           <div className={styles.filledCheckbox}>
             <img
-              src="%PUBLIC_URL%/green_mark.png"
+              src={process.env.PUBLIC_URL + "green_mark.png"}
               alt="greenMark"
               className={styles.image}
             />

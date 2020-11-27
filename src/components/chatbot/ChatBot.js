@@ -27,7 +27,7 @@ const ChatBot = ({ dialogue }) => {
       )}
       <img
         onClick={handleDismiss}
-        src="%PUBLIC_URL%/linda.png"
+        src={process.env.PUBLIC_URL + "linda.png"}
         alt="linda"
         className={styles.image}
         style={{ right: offset + "px" }}
