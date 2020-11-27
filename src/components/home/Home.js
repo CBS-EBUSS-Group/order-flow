@@ -57,6 +57,9 @@ const Home = () => {
     hasCompletedTaskThree,
     hasCongratulatedForTaskFour,
     hasCompletedTaskFour,
+    hasCompletedTaskOne,
+    hasRemindedOfTaskOne,
+    instruments,
     dispatch,
   ]);
 
