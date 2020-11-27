@@ -9,6 +9,8 @@ import { setItem } from "../../store/basketSlice";
 import { addInstrument } from "../depot/depotSlice";
 import { addTransactionIn } from "../account/accountSlice";
 import { setDone } from "../taskBar/taskSlice";
+import { setVisibility } from "../chatbot/botSlice";
+import { setFlag } from "../../store/flagSlice";
 import styles from "./Buy.module.css";
 
 const Buy = () => {
@@ -16,6 +18,7 @@ const Buy = () => {
   const item = useSelector((state) => state.basket.item);
   const { balance } = useSelector((state) => state.account);
   const tasks = useSelector((state) => state.tasks);
+  const { hasVisitedBuyPage } = useSelector((state) => state.flags);
   const [step, setStep] = useState(1);
   const [formValues, setFormValues] = useFormFields({
     exchange: "Direct",
@@ -38,6 +41,15 @@ const Buy = () => {
   useEffect(() => {
     setError(hasErrorsBuy(formValues, balance, fees));
   }, [formValues, balance, fees]);
+
+  useEffect(() => {
+    if (!hasVisitedBuyPage) {
+      dispatch(
+        setVisibility({ visibility: true, dialogue: "firstBuyPageVisit" })
+      );
+      dispatch(setFlag({ id: "hasVisitedBuyPage", value: true }));
+    }
+  }, [hasVisitedBuyPage, dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -65,7 +77,13 @@ const Buy = () => {
       formValues.orderType === "Market Order" &&
       formValues.condition === "Standard"
     ) {
-      dispatch(setDone(1));
+      const task = tasks.find((task) => task.id === 1);
+      if (!task.done) {
+        dispatch(setDone(1));
+        dispatch(
+          setVisibility({ visibility: true, dialogue: "firstTaskFulfilled" })
+        );
+      }
     }
     // Set tasks fulfilled 3
     if (

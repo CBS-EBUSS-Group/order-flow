@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Welcome.module.css";
-import { Button } from "react-bootstrap";
 
 const Home = () => {
   return (
@@ -21,9 +20,13 @@ const Home = () => {
         <br />
         Linda, our Stock Investment Pro will guide you along the way 🙂
       </p>
-      <Button className={styles.btn} variant="primary" href="/">
+      <Link
+        to="/"
+        className="buttonLink"
+        style={{ width: "120px", marginTop: "50px" }}
+      >
         Get Started
-      </Button>
+      </Link>
     </div>
   );
 };

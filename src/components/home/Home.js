@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setVisibility } from "../chatbot/botSlice";
+import { setFlag } from "../../store/flagSlice";
 import styles from "./Home.module.css";
 
 const Home = () => {
+  const dispatch = useDispatch();
   const { balance } = useSelector((state) => state.account);
+  const { hasVisitedHome } = useSelector((state) => state.flags);
+
+  useEffect(() => {
+    if (!hasVisitedHome) {
+      dispatch(setVisibility({ visibility: true, dialogue: "firstHomeVisit" }));
+      dispatch(setFlag({ id: "hasVisitedHome", value: true }));
+    }
+  }, [hasVisitedHome, dispatch]);
+
   return (
     <div className={`page ${styles.container}`}>
       <div className={styles.innerBox}>

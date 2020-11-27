@@ -5,6 +5,7 @@ import accountReducer from "../components/account/accountSlice";
 import depotReducer from "../components/depot/depotSlice";
 import basketReducer from "./basketSlice";
 import botReducer from "../components/chatbot/botSlice";
+import flagsReducer from "./flagSlice";
 
 export default configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export default configureStore({
     depot: depotReducer,
     basket: basketReducer,
     bot: botReducer,
+    flags: flagsReducer,
   },
 });

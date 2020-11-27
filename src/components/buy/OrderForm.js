@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Button,
   Form,
@@ -7,7 +8,8 @@ import {
   OverlayTrigger,
   Alert,
 } from "react-bootstrap";
-import styles from "./Buy.module.css";
+import { setVisibility } from "../chatbot/botSlice";
+import { setFlag } from "../../store/flagSlice";
 
 const OrderForm = ({
   item,
@@ -17,7 +19,20 @@ const OrderForm = ({
   type,
   error,
 }) => {
+  const dispatch = useDispatch();
+  const { hasFirstClickedOrderButton } = useSelector((state) => state.flags);
   const { exchange, orderType, price, count, ultimo, condition } = formValues;
+
+  const handleClickNext = () => {
+    setStep(2);
+    if (!hasFirstClickedOrderButton) {
+      dispatch(
+        setVisibility({ visibility: true, dialogue: "firstOrderButtonClick" })
+      );
+      dispatch(setFlag({ id: "hasFirstClickedOrderButton", value: true }));
+    }
+  };
+
   return (
     <Form>
       <Form.Row>
@@ -261,7 +276,7 @@ const OrderForm = ({
       <Button
         variant="primary"
         style={{ width: "100px", marginRight: "10px" }}
-        onClick={() => setStep(2)}
+        onClick={() => handleClickNext()}
         disabled={error}
       >
         Next

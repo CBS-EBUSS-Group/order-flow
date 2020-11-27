@@ -15,7 +15,7 @@ import ChatBot from "./components/chatbot";
 import styles from "./App.module.css";
 
 function App() {
-  const { visible, dialogue } = useSelector((state) => state.bot);
+  const { visibility, dialogue } = useSelector((state) => state.bot);
   return (
     <Router>
       <div className={styles.app}>
@@ -33,7 +33,7 @@ function App() {
           </Switch>
           <TaskBar />
         </div>
-        {visible && <ChatBot dialogue={dialogue} />}
+        {visibility && <ChatBot dialogue={dialogue} />}
       </div>
     </Router>
   );

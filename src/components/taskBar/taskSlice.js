@@ -50,6 +50,13 @@ export const tasksSlice = createSlice({
     setDone(state, action) {
       const task = state.find((task) => task.id === action.payload);
       if (task) {
+        if (!task.done) {
+          switch (task.id) {
+            case 1:
+            default:
+            // do nothing
+          }
+        }
         task.done = true;
       }
     },
