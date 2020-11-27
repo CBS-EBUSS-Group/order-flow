@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/order-flow/static/css/main.c0293cd2.chunk.css",
+    "main.js": "/order-flow/static/js/main.8153b98e.chunk.js",
+    "main.js.map": "/order-flow/static/js/main.8153b98e.chunk.js.map",
+    "runtime-main.js": "/order-flow/static/js/runtime-main.d796ef60.js",
+    "runtime-main.js.map": "/order-flow/static/js/runtime-main.d796ef60.js.map",
+    "static/js/2.9491874c.chunk.js": "/order-flow/static/js/2.9491874c.chunk.js",
+    "static/js/2.9491874c.chunk.js.map": "/order-flow/static/js/2.9491874c.chunk.js.map",
+    "index.html": "/order-flow/index.html",
+    "static/css/main.c0293cd2.chunk.css.map": "/order-flow/static/css/main.c0293cd2.chunk.css.map",
+    "static/js/2.9491874c.chunk.js.LICENSE.txt": "/order-flow/static/js/2.9491874c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d796ef60.js",
+    "static/js/2.9491874c.chunk.js",
+    "static/css/main.c0293cd2.chunk.css",
+    "static/js/main.8153b98e.chunk.js"
+  ]
+}
