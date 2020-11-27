@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState, Fragment } from "react";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import DisclaimerModal from "./DisclaimerModal";
 import styles from "./Welcome.module.css";
 
 const Home = () => {
+  const [modalShow, setModalShow] = useState(true);
   return (
     <div className={`page ${styles.home}`}>
       <h1>Welcome to OrderFlow!</h1>
@@ -27,6 +30,14 @@ const Home = () => {
       >
         Get Started
       </Link>
+      {modalShow && (
+        <Fragment>
+          <DisclaimerModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
+        </Fragment>
+      )}
     </div>
   );
 };
