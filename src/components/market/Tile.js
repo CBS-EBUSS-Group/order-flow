@@ -16,7 +16,7 @@ const Tile = ({ instrument, setRedirect }) => {
       <div className={styles.inner}>
         <p>{instrument.name}</p>
         <img
-          src={instrument.img}
+          src={`%PUBLIC_URL%/${instrument.img}`}
           alt={instrument.name}
           className={styles.img}
         />
