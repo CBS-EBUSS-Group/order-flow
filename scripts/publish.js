@@ -5,5 +5,11 @@ ghpages.publish(
     branch: "gh-pages",
     repo: "https://github.com/CBS-EBUSS-Group/order-flow.git",
   },
-  (err) => console.log(err)
+  (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Success!");
+    }
+  }
 );
