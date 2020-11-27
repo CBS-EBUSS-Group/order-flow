@@ -17,7 +17,7 @@ const Tile = ({ instrument, setRedirect }) => {
         <p>{instrument.name}</p>
         <img
           src={
-            "https://github.com/CBS-EBUSS-Group/order-flow/blob/master/public/" +
+            "https://raw.githubusercontent.com/CBS-EBUSS-Group/order-flow/master/public/" +
             instrument.img
           }
           alt={instrument.name}
