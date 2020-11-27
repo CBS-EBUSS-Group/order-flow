@@ -8,14 +8,41 @@ import styles from "./Home.module.css";
 const Home = () => {
   const dispatch = useDispatch();
   const { balance } = useSelector((state) => state.account);
-  const { hasVisitedHome } = useSelector((state) => state.flags);
+  const {
+    hasVisitedHome,
+    hasCongratulatedForTaskThree,
+    hasCongratulatedForTaskFour,
+  } = useSelector((state) => state.flags);
+  const [hasCompletedTaskThree, hasCompletedTaskFour] = useSelector((state) => [
+    state.tasks[2].done,
+    state.tasks[3].done,
+  ]);
 
   useEffect(() => {
     if (!hasVisitedHome) {
       dispatch(setVisibility({ visibility: true, dialogue: "firstHomeVisit" }));
       dispatch(setFlag({ id: "hasVisitedHome", value: true }));
     }
-  }, [hasVisitedHome, dispatch]);
+    if (!hasCongratulatedForTaskThree && hasCompletedTaskThree) {
+      dispatch(
+        setVisibility({ visibility: true, dialogue: "congratulateTaskThree" })
+      );
+      dispatch(setFlag({ id: "hasCongratulatedForTaskThree", value: true }));
+    }
+    if (!hasCongratulatedForTaskFour && hasCompletedTaskFour) {
+      dispatch(
+        setVisibility({ visibility: true, dialogue: "congratulateTaskFour" })
+      );
+      dispatch(setFlag({ id: "hasCongratulatedForTaskFour", value: true }));
+    }
+  }, [
+    hasVisitedHome,
+    hasCongratulatedForTaskThree,
+    hasCompletedTaskThree,
+    hasCongratulatedForTaskFour,
+    hasCompletedTaskFour,
+    dispatch,
+  ]);
 
   return (
     <div className={`page ${styles.container}`}>

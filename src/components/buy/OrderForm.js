@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Button,
@@ -20,8 +20,44 @@ const OrderForm = ({
   error,
 }) => {
   const dispatch = useDispatch();
-  const { hasFirstClickedOrderButton } = useSelector((state) => state.flags);
+  const {
+    hasFirstClickedOrderButton,
+    hasExplainedFillOrKill,
+    hasPromptedDoubleCheck,
+    hasRemindedStopLoss,
+  } = useSelector((state) => state.flags);
+  const [hasCompletedTaskTwo, hasCompletedTaskThree] = useSelector((state) => [
+    state.tasks[1].done,
+    state.tasks[2].done,
+  ]);
   const { exchange, orderType, price, count, ultimo, condition } = formValues;
+
+  useEffect(() => {
+    if (
+      !hasExplainedFillOrKill &&
+      hasCompletedTaskTwo &&
+      type === "buy" &&
+      formValues.condition === "Fill-Or-Kill"
+    ) {
+      dispatch(
+        setVisibility({ visibility: true, dialogue: "explainFillOrKill" })
+      );
+      dispatch(setFlag({ id: "hasExplainedFillOrKill", value: true }));
+    }
+
+    if (!hasRemindedStopLoss && hasCompletedTaskThree && type === "sell") {
+      dispatch(setVisibility({ visibility: true, dialogue: "remindStopLoss" }));
+      dispatch(setFlag({ id: "hasRemindedStopLoss", value: true }));
+    }
+  }, [
+    hasCompletedTaskTwo,
+    hasExplainedFillOrKill,
+    dispatch,
+    formValues,
+    hasRemindedStopLoss,
+    hasCompletedTaskThree,
+    type,
+  ]);
 
   const handleClickNext = () => {
     setStep(2);
@@ -30,6 +66,13 @@ const OrderForm = ({
         setVisibility({ visibility: true, dialogue: "firstOrderButtonClick" })
       );
       dispatch(setFlag({ id: "hasFirstClickedOrderButton", value: true }));
+      return;
+    }
+    if (!hasPromptedDoubleCheck && hasCompletedTaskTwo && type === "buy") {
+      dispatch(
+        setVisibility({ visibility: true, dialogue: "promptDoubleCheck" })
+      );
+      dispatch(setFlag({ id: "hasPromptedDoubleCheck", value: true }));
     }
   };
 

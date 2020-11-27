@@ -2,20 +2,38 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setDone } from "../taskBar/taskSlice";
+import { setFlag } from "../../store/flagSlice";
 import Transactionitem from "./TransactionItem";
 import styles from "./Account.module.css";
+import { setVisibility } from "../chatbot/botSlice";
 
 const Balance = () => {
   const dispatch = useDispatch();
   const { balance, transactions } = useSelector((state) => state.account);
   const tasks = useSelector((state) => state.tasks);
+  const { hasVisitedAccounts, hasCongratulatedForAllTasks } = useSelector(
+    (state) => state.flags
+  );
 
   useEffect(() => {
     // Set tasks fulfilled 5
     if (!tasks[4].done && tasks[3].done) {
       dispatch(setDone(5));
+      if (!hasCongratulatedForAllTasks) {
+        dispatch(
+          setVisibility({ visibility: true, dialogue: "congratulateAllTasks" })
+        );
+        dispatch(setFlag({ id: "hasCongratulatedForAllTasks", value: true }));
+      }
+      return;
     }
-  }, [tasks, dispatch]);
+    if (!hasVisitedAccounts) {
+      dispatch(
+        setVisibility({ visibility: true, dialogue: "firstAccountsPageVisit" })
+      );
+      dispatch(setFlag({ id: "hasVisitedAccounts", value: true }));
+    }
+  }, [tasks, hasVisitedAccounts, hasCongratulatedForAllTasks, dispatch]);
 
   return (
     <div className={`page ${styles.container}`}>

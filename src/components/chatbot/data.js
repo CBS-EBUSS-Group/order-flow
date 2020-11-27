@@ -21,6 +21,27 @@ const text = {
   firstDepotPageVisit: [
     "This is your Depot. Here you can see your securities. If you have securities listed here, you can sell them on click of the sell button.",
   ],
+  explainFillOrKill: [
+    "A Fill-Or-Kill order is performed immediately or not at all, if it cannot be fulfilled immediately due to market conditions. You can also find the explanations for order conditions in the tooltip.",
+  ],
+  promptDoubleCheck: [
+    "Before submitting let’s double check whether you're meeting the requirements in your To-Do list. 🙂",
+  ],
+  congratulateTaskThree: [
+    "You are getting really good at this. I have another task for you. Perform a stop-loss order to secure your position.",
+  ],
+  remindStopLoss: [
+    "Don’t forget to set the Order Type to Stop-Loss. If you are unsure about it, check the definitions in the tooltip.",
+  ],
+  congratulateTaskFour: [
+    "Four down. One left to go! Let’s check your finances ;)",
+  ],
+  firstAccountsPageVisit: [
+    "Welcome to your account page. Paid amounts are marked in red, received amounts in green and pending amounts in yellow. You can see your total balance at the top",
+  ],
+  congratulateAllTasks: [
+    "Congratulations! You’ve completed all your tasks and have acquired the basics of stock investing. Have fun using OrderFlow!",
+  ],
 };
 
 export default text;

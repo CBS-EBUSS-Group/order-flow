@@ -5,8 +5,14 @@ const initialState = {
   hasVisitedMarketPage: false,
   hasVisitedBuyPage: false,
   hasFirstClickedOrderButton: false,
-  hasCompletedFirstTask: false,
   hasVisitedDepot: false,
+  hasExplainedFillOrKill: false,
+  hasPromptedDoubleCheck: false,
+  hasCongratulatedForTaskThree: false,
+  hasRemindedStopLoss: false,
+  hasCongratulatedForTaskFour: false,
+  hasVisitedAccounts: false,
+  hasCongratulatedForAllTasks: false,
 };
 
 export const flagSlice = createSlice({
