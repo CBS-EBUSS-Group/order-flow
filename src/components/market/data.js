@@ -17,7 +17,7 @@ const data = {
     {
       id: 2,
       wkn: "A2PSR2",
-      name: "Biontech",
+      name: "BioNTech",
       price: 87.8,
       img: "chart_biontech.png",
     },

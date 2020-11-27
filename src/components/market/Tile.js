@@ -21,7 +21,7 @@ const Tile = ({ instrument, setRedirect }) => {
           className={styles.img}
         />
         <p>
-          <span>Wkn: {instrument.wkn}</span>
+          <span>WKN: {instrument.wkn}</span>
           {"  "}
           <span>Price: {instrument.price} EUR</span>
         </p>

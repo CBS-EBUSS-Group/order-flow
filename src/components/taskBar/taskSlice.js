@@ -20,7 +20,7 @@ const initialState = [
       "Invest in a stock of your choice",
       "Select Exchange: Xetra",
       "Select Order Type: Limit Order",
-      "Select Order Condition: Fill-or-kill",
+      "Select Order Condition: Fill-or-Kill",
     ],
     done: false,
   },

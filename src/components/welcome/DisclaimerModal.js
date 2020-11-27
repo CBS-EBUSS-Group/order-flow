@@ -21,7 +21,7 @@ const DisclaimerModal = (props) => {
           conditions. Correctness of information is not warranted for. The
           application is solely used for user testing purposes. Always trade
           responsibly and ask your financial advisor, when in doubt. Thank you
-          for participating and trade responsibly :)
+          for participating.
         </p>
       </Modal.Body>
       <Modal.Footer>

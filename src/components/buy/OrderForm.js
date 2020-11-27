@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Button,
@@ -90,7 +90,8 @@ const OrderForm = ({
                   Securities are traded on various stock exchanges.
                   <br />
                   <br />
-                  Fees may change depending on the chosen exchange.
+                  Fees, currencies and opening hours may change depending on the
+                  selected exchange.
                 </Popover.Content>
               </Popover>
             }
@@ -117,8 +118,8 @@ const OrderForm = ({
               <Popover id="popover-basic">
                 <Popover.Title as="h3">Additional Fees</Popover.Title>
                 <Popover.Content>
-                  These costs (Stock exchange fee) are in addition to the order
-                  commission.
+                  Fees include order commission and vary from exchange to
+                  exchange.
                 </Popover.Content>
               </Popover>
             }
@@ -140,9 +141,6 @@ const OrderForm = ({
                   <b>Order Types</b>
                 </Popover.Title>
                 <Popover.Content>
-                  Set a limit for your order. Depending on your strategy, you
-                  can set limits to limit losses or optimize returns. <br />
-                  <br />
                   <b>Market Order</b>
                   <br />
                   A market order is an order to buy or sell a security
@@ -153,26 +151,23 @@ const OrderForm = ({
                   <b>Limit Order</b>
                   <br />
                   A limit order is an order to buy or sell a security at a
-                  specific price or better. A buy limit order can only be
-                  executed at the limit price or lower, and a sell limit order
-                  can only be executed at the limit price or higher.
+                  chosen price limit. A buy limit order can only be executed at
+                  the limit price or lower, and a sell limit order can only be
+                  executed at the limit price or higher.
                   <br />
                   <br />
-                  <b>Stop-loss</b>
-                  <br />
-                  A stop-loss order is an order to buy or sell a stock once the
-                  price of the stock reaches the specified price, known as the
-                  stop price. When the stop price is reached, a stop order
-                  becomes a market order.
-                  <br />
-                  <br />
-                  <b>Stop Order</b>
-                  <br />A buy stop order is entered at a stop price above the
-                  current market price. Investors generally use a buy stop order
-                  to limit a loss or protect a profit on a stock that they have
-                  sold short. A sell stop order is entered at a stop price below
-                  the current market price. Investors generally use a sell stop
-                  order to limit a loss or protect a profit on a stock they own.
+                  {type === "sell" && (
+                    <Fragment>
+                      <b>Stop-Loss</b>
+                      <br />
+                      A stop-loss order is an order to buy or sell a stock once
+                      the price of the stock reaches the specified price, known
+                      as the stop price. When the stop price is reached, a stop
+                      order becomes a market order.
+                      <br />
+                      <br />
+                    </Fragment>
+                  )}
                 </Popover.Content>
               </Popover>
             }
@@ -189,7 +184,6 @@ const OrderForm = ({
             <option>Market Order</option>
             <option>Limit Order</option>
             {type === "sell" && <option>Stop-Loss Order</option>}
-            <option>Stop Order</option>
           </Form.Control>
         </Form.Group>
 
@@ -201,8 +195,9 @@ const OrderForm = ({
               <Popover id="popover-basic">
                 <Popover.Title as="h3">Price</Popover.Title>
                 <Popover.Content>
-                  The price of the security on the trading place - at the time
-                  of the query in real time. The price offer is not binding.
+                  Contains the market price of the selected security on the
+                  current exchange for a market order. Other order types allow
+                  you to set your own bidding price.
                 </Popover.Content>
               </Popover>
             }
@@ -255,7 +250,7 @@ const OrderForm = ({
               </Popover>
             }
           >
-            <Form.Label>Date valid until</Form.Label>
+            <Form.Label>Order valid until</Form.Label>
           </OverlayTrigger>
           <Form.Control
             as="select"
@@ -264,7 +259,7 @@ const OrderForm = ({
             value={ultimo}
             onChange={(e) => setFormValues(e)}
           >
-            <option>Immediately</option>
+            <option>Automatic</option>
             <option>End of Day</option>
             <option>End of Month</option>
           </Form.Control>
@@ -280,15 +275,17 @@ const OrderForm = ({
                   <b>Order Condition</b>
                 </Popover.Title>
                 <Popover.Content>
-                  Description
+                  Order conditions are optional and alter the way your order is
+                  executed.
                   <br />
                   <br />
                   <b>Fill-Or-Kill</b>
                   <br />
                   A Fill-Or-Kill order is an order to buy or sell a stock that
                   must be executed immediately in its entirety; otherwise, the
-                  entire order will be cancelled (i.e., no partial execution of
-                  the order is allowed).
+                  order will be executed and at a later point if the selected
+                  amount of shares is offered for the indicated price (i.e., no
+                  partial execution of the order is allowed).
                   <br />
                   <br />
                   <b>Immediate-Or-Cancel</b>
@@ -309,7 +306,7 @@ const OrderForm = ({
             value={condition}
             onChange={(e) => setFormValues(e)}
           >
-            <option>Standard</option>
+            <option>None</option>
             <option>Fill-Or-Kill</option>
             <option>Immediate-Or-Cancel</option>
           </Form.Control>
