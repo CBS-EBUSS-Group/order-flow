@@ -28,6 +28,10 @@ const Depot = () => {
     }
   }, [tasks, hasVisitedDepot, dispatch]);
 
+  const handleClick = () => {
+    dispatch(setVisibility({ visibility: false }));
+  };
+
   if (redirect) {
     return <Redirect to="/sell" />;
   }
@@ -50,6 +54,7 @@ const Depot = () => {
           to="/"
           className="buttonLink"
           style={{ width: "150px", margin: "50px 0 0 140px" }}
+          onClick={handleClick}
         >
           Back to Home
         </Link>

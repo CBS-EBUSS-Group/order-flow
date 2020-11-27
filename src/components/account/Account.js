@@ -35,6 +35,10 @@ const Balance = () => {
     }
   }, [tasks, hasVisitedAccounts, hasCongratulatedForAllTasks, dispatch]);
 
+  const handleClick = () => {
+    dispatch(setVisibility({ visibility: false }));
+  };
+
   return (
     <div className={`page ${styles.container}`}>
       <div className={styles.inner}>
@@ -51,6 +55,7 @@ const Balance = () => {
           to="/"
           className="buttonLink"
           style={{ width: "150px", margin: "30px 0" }}
+          onClick={handleClick}
         >
           Back to Home
         </Link>
