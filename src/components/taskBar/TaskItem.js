@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "../../img/green_mark.png";
 import styles from "./TaskBar.module.css";
 
 const TaskItem = ({ item }) => {
@@ -7,11 +8,7 @@ const TaskItem = ({ item }) => {
       <div className={styles.titleRow}>
         {item.done ? (
           <div className={styles.filledCheckbox}>
-            <img
-              src={process.env.PUBLIC_URL + "green_mark.png"}
-              alt="greenMark"
-              className={styles.image}
-            />
+            <img src={Image} alt="greenMark" className={styles.image} />
           </div>
         ) : (
           <div className={styles.emptyCheckbox} />

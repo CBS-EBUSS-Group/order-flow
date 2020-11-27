@@ -16,7 +16,10 @@ const Tile = ({ instrument, setRedirect }) => {
       <div className={styles.inner}>
         <p>{instrument.name}</p>
         <img
-          src={process.env.PUBLIC_URL + instrument.img}
+          src={
+            "https://github.com/CBS-EBUSS-Group/order-flow/blob/master/public/" +
+            instrument.img
+          }
           alt={instrument.name}
           className={styles.img}
         />

@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { useRaf } from "react-use";
 import { setVisibility } from "./botSlice";
+import Image from "../../img/linda.png";
 import styles from "./ChatBot.module.css";
 
 const START_POS = -290;
@@ -27,7 +28,7 @@ const ChatBot = ({ dialogue }) => {
       )}
       <img
         onClick={handleDismiss}
-        src={process.env.PUBLIC_URL + "linda.png"}
+        src={Image}
         alt="linda"
         className={styles.image}
         style={{ right: offset + "px" }}
