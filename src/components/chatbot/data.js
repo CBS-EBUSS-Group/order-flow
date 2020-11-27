@@ -15,6 +15,9 @@ const text = {
   firstOrderButtonClick: [
     "Please check the order details. Once you’re done, go ahead and click on Confirm & Buy.",
   ],
+  remindTaskOne: [
+    "Awesome, you made your first buy order! But have you followed the instructions correctly?",
+  ],
   firstTaskFulfilled: [
     "Woohoooo!! Congrats, you completed the first task and made a buy order!",
   ],

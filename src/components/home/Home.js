@@ -8,12 +8,19 @@ import styles from "./Home.module.css";
 const Home = () => {
   const dispatch = useDispatch();
   const { balance } = useSelector((state) => state.account);
+  const { instruments } = useSelector((state) => state.depot);
   const {
     hasVisitedHome,
     hasCongratulatedForTaskThree,
     hasCongratulatedForTaskFour,
+    hasRemindedOfTaskOne,
   } = useSelector((state) => state.flags);
-  const [hasCompletedTaskThree, hasCompletedTaskFour] = useSelector((state) => [
+  const [
+    hasCompletedTaskOne,
+    hasCompletedTaskThree,
+    hasCompletedTaskFour,
+  ] = useSelector((state) => [
+    state.tasks[0].done,
     state.tasks[2].done,
     state.tasks[3].done,
   ]);
@@ -22,6 +29,15 @@ const Home = () => {
     if (!hasVisitedHome) {
       dispatch(setVisibility({ visibility: true, dialogue: "firstHomeVisit" }));
       dispatch(setFlag({ id: "hasVisitedHome", value: true }));
+    }
+    if (
+      !hasRemindedOfTaskOne &&
+      !hasCompletedTaskOne &&
+      instruments[0] &&
+      instruments[0].id < 8
+    ) {
+      dispatch(setVisibility({ visibility: true, dialogue: "remindTaskOne" }));
+      dispatch(setFlag({ id: "hasRemindedOfTaskOne", value: true }));
     }
     if (!hasCongratulatedForTaskThree && hasCompletedTaskThree) {
       dispatch(

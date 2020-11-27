@@ -5,6 +5,7 @@ const initialState = {
   hasVisitedMarketPage: false,
   hasVisitedBuyPage: false,
   hasFirstClickedOrderButton: false,
+  hasRemindedOfTaskOne: false,
   hasVisitedDepot: false,
   hasExplainedFillOrKill: false,
   hasPromptedDoubleCheck: false,
