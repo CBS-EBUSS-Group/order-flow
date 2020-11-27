@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { useRaf } from "react-use";
 import { setVisibility } from "./botSlice";
@@ -9,7 +9,7 @@ const END_POS = 40;
 
 const ChatBot = ({ dialogue }) => {
   const dispatch = useDispatch();
-  const progress = useRaf(800, 50);
+  const progress = useRaf(800);
   const offset = (START_POS + (END_POS - START_POS) * progress).toFixed();
 
   const handleDismiss = () => {
